@@ -1,0 +1,492 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let tovary of userTovary; let isFirst = first">
+        <div *ngIf="tovary.category.path === 'pizza' && isFirst">
+          <div class="c-title-wrapper">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <h1 class="title title-decor">Доставка піци у Львові від МА</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="tovary.category.path === 'sous' && isFirst">
+          <div class="c-title-wrapper">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <h1 class="title title-decor">Соуси від МА</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="tovary.category.path === 'salads' && isFirst">
+          <div class="c-title-wrapper">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <h1 class="title title-decor">Салати від МА</h1>
+              </div>
+              <div class="col-lg-6">
+                <div class="c-title-img">
+                  <img src="/assets/images/c-title-img.png.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="tovary.category.path === 'desserts' && isFirst">
+          <div class="c-title-wrapper">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <h1 class="title title-decor">Десерти від МА</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="tovary.category.path === 'drinks' && isFirst">
+          <div class="c-title-wrapper">
+            <div class="row">
+              <div class="col-lg-6 align-self-center">
+                <h1 class="title title-decor">Напої від МА</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngFor="let tovary of userTovary; let isFirst = first">
+        <div
+          class="row"
+          *ngIf="
+            (tovary.category.path === 'pizza' && isFirst) ||
+            (tovary.category.path === 'salads' && isFirst)
+          "
+        >
+          <div class="col-lg-8">
+            <ul class="filters-list">
+              <li
+                [class.active]="activeFilter === '*'"
+                (click)="applyFilter('*')"
+                data-filter="*"
+              >
+                <b>Всі</b>
+              </li>
+              <li
+                [class.active]="activeFilter === 'gostav'"
+                (click)="applyFilter('gostav')"
+                data-filter="gostav"
+              >
+                <i
+                  ><img
+                    src="https://mapizza.com.ua/wp-content/uploads/2021/11/hot.svg"
+                    alt=""
+                /></i>
+                <b>Гостра</b>
+              </li>
+              <li
+                [class.active]="activeFilter === 'myaso'"
+                (click)="applyFilter('myaso')"
+                data-filter="myaso"
+              >
+                <i
+                  ><img
+                    src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-filter-3.svg"
+                    alt=""
+                /></i>
+                <b>М'ясо</b>
+              </li>
+              <li
+                [class.active]="activeFilter === 'ovochi'"
+                (click)="applyFilter('ovochi')"
+                data-filter="ovochi"
+              >
+                <i
+                  ><img
+                    src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-filter-1.svg"
+                    alt=""
+                /></i>
+                <b>Вегетаріанські</b>
+              </li>
+              <li
+                [class.active]="activeFilter === 'ryba'"
+                (click)="applyFilter('ryba')"
+                data-filter="ryba"
+              >
+                <i
+                  ><img
+                    src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-filter-2.svg"
+                    alt=""
+                /></i>
+                <b>Морепродукти</b>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+      <div class="products-wrapper">
+        <div class="row product-row">
+          <div
+            class="col-sm-6 col-lg-4 col-xl-43"
+            *ngFor="let tovary of userTovary"
+          >
+            <div
+              class="product"
+              *ngIf="
+                activeFilter === '*' ||
+                tovary.categoryTovarPath === activeFilter
+              "
+            >
+              <div class="product_image-wrap">
+                <a
+                  class="product_image"
+                  [routerLink]="['/' + tovary.category.path, tovary.id]"
+                >
+                  <img
+                    class="product-img"
+                    [src]="tovary.imagePath"
+                    style="max-width: 100%"
+                  />
+                </a>
+                <div class="product_top-right">
+                  <button
+                    (click)="toggle(tovary)"
+                    class="fav-btn"
+                    [ngClass]="{ active: tovary.isActive }"
+                  >
+                    <svg
+                      width="20"
+                      height="18"
+                      viewBox="0 0 20 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="fill-anime"
+                        d="M10.5167 16.3416C10.2334 16.4416 9.76675 16.4416 9.48342 16.3416C7.06675 15.5166 1.66675 12.075 1.66675 6.24165C1.66675 3.66665 3.74175 1.58331 6.30008 1.58331C7.81675 1.58331 9.15842 2.31665 10.0001 3.44998C10.8417 2.31665 12.1917 1.58331 13.7001 1.58331C16.2584 1.58331 18.3334 3.66665 18.3334 6.24165C18.3334 12.075 12.9334 15.5166 10.5167 16.3416Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="product_title-wrap">
+                <div class="product_title">
+                  <p
+                    [routerLink]="['/' + tovary.category.path, tovary.id]"
+                    class="product_title"
+                  >
+                    {{ tovary.name }}
+                    <i>
+                      <img [src]="tovary.imagePathCategory" alt="" />
+                    </i>
+                  </p>
+                </div>
+              </div>
+              <p class="product_desc">{{ tovary.description }}</p>
+              <div class="product_price-wrap">
+                <p class="product_price">
+                  <b>{{ tovary.price }}грн</b>
+                </p>
+                <p class="product_size">/ {{ tovary.weight }}г</p>
+                <p class="bonus_calculate">
+                  <b>+</b> {{ tovary.bonus }}грн бонусів
+                </p>
+              </div>
+              <div class="thumb-input d-flex">
+                <div class="thumb-input-number">
+                  <button
+                    (click)="tovaryCount(tovary, false)"
+                    type="button"
+                    class="decrement"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="product-qty"
+                    value="1"
+                    [value]="tovary.count"
+                    readonly=""
+                  />
+                  <button
+                    (click)="tovaryCount(tovary, true)"
+                    type="button"
+                    class="increment"
+                  >
+                    +
+                  </button>
+                </div>
+                <button (click)="addToBasket(tovary)" class="btn-product">
+                  <span>замовити</span>
+                  <i>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.25 6.39167V5.58334C6.25 3.70834 7.75833 1.86667 9.63333 1.69167C11.8667 1.47501 13.75 3.23334 13.75 5.42501V6.57501"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.5001 18.3333H12.5001C15.8501 18.3333 16.4501 16.9917 16.6251 15.3583L17.2501 10.3583C17.4751 8.32499 16.8918 6.66666 13.3334 6.66666H6.66677C3.10843 6.66666 2.5251 8.32499 2.7501 10.3583L3.3751 15.3583C3.5501 16.9917 4.1501 18.3333 7.5001 18.3333Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M12.9128 10H12.9203"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.07884 10H7.08632"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngFor="let tovary of userTovary; let isFirst = first">
+        <div *ngIf="tovary.category.path === 'pizza' && isFirst">
+          <div class="section seo-section">
+            <img
+              class="decor-img left rellax"
+              src="assets/images/decor-img-3.svg"
+              alt=""
+            />
+            <img
+              class="decor-img right rellax"
+              src="assets/images/decor-img-4.svg"
+              alt=""
+            />
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-12 col-xl-8">
+                  <div class="text text-lg">
+                    <h3>Доставка піци у Львові</h3>
+                    <p>
+                      Смачне надбання італійської кухні прийшло до вподоби
+                      українцям і піцу замовляють не тільки, щоб швидко
+                      перекусити, а ще й на свята, події, на пікнік. У людей
+                      багато роботи, мало часу на відвідування кафе чи піцерій,
+                      тому послуга замовлення піци у Львові з доставкою від
+                      <a [routerLink]="['/']">MA Pizza</a> дуже популярна.
+                    </p>
+                    <p>
+                      Якщо саме зараз ви хочете скушувати піцу, замовити у
+                      Львові її можна з доставкою на будь-яку адресу. Цією
+                      послугою користуються туристи та гості міста, містяни
+                      також обожнюють смакувати улюбленою стравою.
+                    </p>
+                    <p>
+                      Дуже подобається піца з доставкою у Львові поціновувачам
+                      пікніку або романтичної вечері у несподіваному місці, на
+                      кшталт мальовничого даху на історичній будівлі. Служба
+                      доставки потурбується, щоб піца на замовлення у Львові
+                      приїхала до вас гарячою та запашною, тільки з печі.
+                    </p>
+                    <h2>Яку саме можна замовити піцу у Львові</h2>
+                    <p>
+                      У MA Pizza ми не просто готуємо піцу за відомими та новими
+                      рецептами, піцейоли вкладають всю любов та душу у
+                      створення найсмачнішої італійської страви. Для цього ми
+                      збирали рецепти в Італії, навчались у всесвітньо відомих
+                      піцайоло Неаполю. Тільки тут замовити піцу у Львові можна
+                      за автентичними рецептами.
+                    </p>
+                    <p>
+                      До піци з доставкою у Львові можна замовити соуси,
+                      <a [routerLink]="['/salads']">салати</a>, десерти, напої.
+                      Також до кожної піци можна замовити смачні добавки і
+                      зробити смак ще яскравішим.
+                    </p>
+                    <h2>Особливості доставки піци від МА піца</h2>
+                    <p>
+                      Пропонуємо замовити доставку піци у Львові і отримати
+                      задоволення від оптимальної ціни, дуже смачної піци,
+                      швидкої доставки, що в середньому складає 29 хвилин та при
+                      умові замовлення на суму понад 300 грн є безкоштовною.
+                      Наші кур’єри знають, як найшвидше доставити піцу гарячою
+                      до клієнта.
+                    </p>
+                    <p>
+                      Якщо ви поділяєте з нами любов до італійської випічки,
+                      любите експериментувати та пробувати нові смаки,
+                      замовляйте піцу онлайн у Львові на сайті MA Pizza.
+                    </p>
+                    <p>
+                      Найкращою та найсмачнішою піцою є та, яка знаходиться у
+                      ваших руках і ви готуєтесь отримати насолоду від кожного
+                      шматочка. Якщо ви зголодніли, чи просто бажаєте поїсти
+                      смачного, мерщій обирайте новий смак від MA Pizza і
+                      чекайте на доставку.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="section seo-section"
+          *ngIf="tovary.category.path === 'salads' && isFirst"
+        >
+          <img
+            class="decor-img left rellax"
+            src="assets/images/decor-img-3.svg"
+            alt=""
+          />
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 col-xl-8">
+                <div class="seo-text-block">
+                  <div class="text text-lg">
+                    <h2>Салати у Львові</h2>
+                    <p>
+                      <span style="font-weight: 400"
+                        >Салати у м. Львів – це універсальна страва, що може
+                        стати сніданком, обідом, вечерею або ж навіть родзинкою
+                        свята. Завжди нове, неповторне поєднання інгредієнтів
+                        дозволяє експериментувати, винаходити нові, ще кращі
+                        закуски. А доставка завжди доречних, ситних, освіжаючих
+                        салатів у м. Львів максимально швидка.&nbsp;</span
+                      >
+                    </p>
+                  </div>
+                  <div class="more-text">
+                    <div class="collapse" id="collapseExample">
+                      <div class="text text-lg" style="display: block">
+                        <p>
+                          <span style="font-weight: 400"
+                            >У спекотний літній день, коли зовсім не хочеться
+                            жирних, калорійних страв, на допомогу приходять
+                            салати від MA Pizza у м. Львів.&nbsp; Завдяки
+                            найкращим, соковитим овочам та зелені можна чудово
+                            освіжитись. А у поєднанні з іншими інгредієнтами
+                            ситний перекус додасть вам сили, енергії. Навіть
+                            найвибагливіші гурмани не можуть відірватись від
+                            неповторних, вишуканих салатів.&nbsp;</span
+                          >
+                        </p>
+                        <h2>
+                          <b
+                            >Чому варто замовити салат від MA Pizza у м.
+                            Львів?&nbsp;</b
+                          >
+                        </h2>
+                        <ol>
+                          <li style="font-weight: 400">
+                            <span style="font-weight: 400"
+                              >Майстерні кухарі використовують найкращі продукти
+                              з Італії, Польщі, Іспанії, Німеччини та створюють
+                              справжні мистецькі шедеври на тарілці;</span
+                            >
+                          </li>
+                          <li style="font-weight: 400">
+                            <span style="font-weight: 400"
+                              >Смачні, ситні салати дарують енергію без зайвого
+                              переїдання, освіжають, додають сили, гарний
+                              настрій;</span
+                            >
+                          </li>
+                          <li style="font-weight: 400">
+                            <span style="font-weight: 400"
+                              >Смачні салати можуть урізноманітнити буденне
+                              меню, коли зовсім немає часу стояти на
+                              кухні;</span
+                            >
+                          </li>
+                          <li style="font-weight: 400">
+                            <span style="font-weight: 400"
+                              >Салати – оригінальне доповнення до піци MA Pizza
+                              у м. Львів;</span
+                            >
+                          </li>
+                          <li style="font-weight: 400">
+                            <span style="font-weight: 400"
+                              >Приготовані з любов’ю до кожного клієнта, салати
+                              MA Pizza у м. Львів дивують неповторними смаками,
+                              дарують особливу насолоду.</span
+                            >
+                          </li>
+                        </ol>
+                        <p>
+                          <span style="font-weight: 400"
+                            >Відчуваєте цей чарівний аромат смаженої курочки під
+                            пікантним соусом? &nbsp; Або ж хочете спробувати
+                            щось особливе, неповторне, таке, що раніше не
+                            куштували? Пікантна груша з сиром Дор Блю</span
+                          ><span style="font-weight: 400">,</span
+                          ><span style="font-weight: 400">
+                            класчний цезар з мірс&nbsp;</span
+                          >
+                        </p>
+                        <h2><b>Найсмачніші салати у Львові</b></h2>
+                        <h2>
+                          <b>Замовити салат у м. Львів</b
+                          ><span style="font-weight: 400">&nbsp;</span>
+                        </h2>
+                        <p>
+                          <span style="font-weight: 400"
+                            >Доставка салатів у м. Львів є легкою, доступною.
+                            Вам достатньо обрати на сайті улюблений салат, тип
+                            доставки, спосіб оплати. Як тільки замовлення буде
+                            прийнято, наші кухарі миттєво візьмуться до роботи.
+                            Швидка доставка їжі від MA Pizza, зокрема салатів,
+                            дозволяє смачно перекусити вдома, на роботі чи
+                            навіть під час прогулянки у м. Львів.&nbsp;</span
+                          >
+                        </p>
+                        <p>
+                          <span style="font-weight: 400"
+                            >А якщо не впевнені, який салат краще обрати,
+                            зателефонуйте до нашого кол-центру. Консультанти
+                            допоможуть вам визначитись зі стравою, швидко її
+                            замовити. Вже через кілька хвилин ви не зможете
+                            відірватись від апетитних салатів MA
+                            Pizza.&nbsp;</span
+                          >
+                        </p>
+                        <p>
+                          <em
+                            ><b
+                              >Апетитний вигляд, спокусливий аромат, чудовий
+                              смак – це все про салати MA Pizza у м. Львів!</b
+                            ></em
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="decor-img right rellax"
+                    src="assets/images/decor-img-4.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</main>

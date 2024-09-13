@@ -1,0 +1,201 @@
+<section class="section contacts-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <div class="contacts-block b-shadow">
+          <img
+            class="decor-img"
+            src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-7.svg"
+            alt=""
+          />
+          <div class="row justify-content-center">
+            <div class="col-12 col-xl-4 pe-xl-0 align-self-center">
+              <div class="contacts-wrapper">
+                <div class="contact-item">
+                  <div class="caption title h5">Контакти</div>
+                  <div class="contact-link">
+                    <div class="contact-link-img">
+                      <img
+                        src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-phone.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="contact-link-info">
+                      <a href="tel:380971830618">+380971830618</a>
+                    </div>
+                  </div>
+                  <div class="contact-link">
+                    <div class="contact-link-img">
+                      <img
+                        src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-mail.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="contact-link-info">
+                      <a href="mailto: mamaitalianopizza@gmail.com">
+                        mamaitalianopizza&#64;gmail.com</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="caption title h5">Графік роботи</div>
+                  <div class="contact-link">
+                    <div class="contact-link-img">
+                      <img
+                        src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-calendar.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="contact-link-info">
+                      <p>
+                        Працюємо щодня без вихідних з <strong>10:00</strong> до
+                        <strong>22:30</strong>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="caption title h5">Соцмережі</div>
+                  <ul class="social">
+                    <li>
+                      <a href="https://www.facebook.com/mapizzaaa">
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-facebook.svg"
+                          alt="https://mapizza.com.ua/wp-content/uploads/2021/09/i-facebook.svg"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.instagram.com/_mapizza_/?igshid=NmNmNjAwNzg%3D"
+                      >
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-instagram.svg"
+                          alt="https://mapizza.com.ua/wp-content/uploads/2021/09/i-instagram.svg"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.youtube.com/channel/UCoYjwnHD1k-4RQ5eWpTws9w"
+                      >
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-you-tube.svg"
+                          alt="https://mapizza.com.ua/wp-content/uploads/2021/09/i-you-tube.svg"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-8 ps-xl-0">
+              <div class="faq-form">
+                <div class="h2 title title-decor">
+                  Форма зворотнього зв'язку
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+                      size="40"
+                      class="input"
+                      placeholder="*Ім’я"
+                      type="text"
+                      name="first_name"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      size="40"
+                      class="input"
+                      [inputMask]="telInputMask"
+                      formControlName="phoneNumber"
+                      placeholder="*Введіть номер телефону"
+                      data-inputmask-placeholder="x"
+                      placeholder="*Введіть номер телефону"
+                      type="text"
+                      name="first_name"
+                    />
+                  </div>
+                  <span>
+                    <input
+                      size="40"
+                      class="input"
+                      placeholder="*Email"
+                      type="email"
+                      name="email"
+                    />
+                  </span>
+                  <span>
+                    <textarea
+                      cols="40"
+                      rows="10"
+                      class="input"
+                      placeholder="Повідомлення…"
+                      name="textarea"
+                    ></textarea>
+                  </span>
+
+                  <div class="faq-btn-wrapper">
+                    <div class="upload-wrapper">
+                      <span>
+                        <input
+                          size="40"
+                          accept=".pdf,.xlsx,.xls,.doc,.docx"
+                          aria-invalid="false"
+                          type="file"
+                        />
+                      </span>
+                      <div class="file-name">
+                        <span>Прикріпити файл</span>
+                      </div>
+                      <svg
+                        class="upload-icon"
+                        width="19"
+                        height="20"
+                        viewBox="0 0 19 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17.8666 9.20835L10.2082 16.8667C9.27005 17.8049 7.99757 18.332 6.67075 18.332C5.34393 18.332 4.07145 17.8049 3.13325 16.8667C2.19505 15.9285 1.66797 14.656 1.66797 13.3292C1.66797 12.0024 2.19505 10.7299 3.13325 9.79168L10.7916 2.13335C11.4171 1.50788 12.2654 1.15649 13.1499 1.15649C14.0345 1.15649 14.8828 1.50788 15.5082 2.13335C16.1337 2.75882 16.4851 3.60713 16.4851 4.49168C16.4851 5.37623 16.1337 6.22455 15.5082 6.85002L7.84158 14.5083C7.52885 14.8211 7.10469 14.9968 6.66242 14.9968C6.22014 14.9968 5.79598 14.8211 5.48325 14.5083C5.17051 14.1956 4.99482 13.7715 4.99482 13.3292C4.99482 12.8869 5.17051 12.4627 5.48325 12.15L12.5582 5.08335"
+                          stroke="#E20613"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      <div class="allowed">
+                        <p>до 3 Мб | pdf / doc / xls</p>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">
+                      <br />
+                      <span>Надіслати </span>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M15.0748 6.64166L5.41646 1.55833C3.1248 0.349998 0.633129 2.79166 1.79146 5.10833L3.14146 7.80833C3.51646 8.55833 3.51646 9.44167 3.14146 10.1917L1.79146 12.8917C0.633129 15.2083 3.1248 17.6417 5.41646 16.4417L15.0748 11.3583C16.9748 10.3583 16.9748 7.64166 15.0748 6.64166Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                      ><br />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,247 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+
+body{
+  font-family:"MontBlanc" ;
+}
+.vacancy .decor-img {
+  position: absolute;
+  z-index: -1;
+  max-width: 230px;
+  max-height: 230px;
+}
+.banner {
+  margin-top: 20px;
+}
+.banner-align {
+  display: table-cell;
+  vertical-align: bottom;
+  position: relative;
+  overflow: hidden;
+  width: 10000px;
+  padding: 30px 0;
+  height: 320px;
+  z-index: 1;
+  border-radius: 16px;
+}
+.parallax-bg {
+  overflow-y: hidden;
+}
+.parallax-bg .bg {
+  position: absolute;
+  width: 100%;
+  height: 105%;
+  top: -3%;
+}
+.bg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-image: url("/assets/images/job-1.webp");
+}
+.bg.mobile {
+  display: none;
+  position: relative;
+  padding-top: 57%;
+  border-radius: 16px;
+}
+.opacity:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  border-radius: 16px;
+}
+.banner-info {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+}
+.vacancy {
+  margin-top: 100px;
+  position: relative;
+}
+.title-decor {
+  display: inline-block;
+  position: relative;
+}
+.title-decor:before {
+  top: -15px;
+  left: -35px;
+  width: 50px;
+  height: 40px;
+}
+.title-decor:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -35px;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.advantages-row > [class*="col"] {
+  margin-bottom: 40px;
+}
+.benefits-item.type-2 {
+  padding: 15px 10px;
+  background: #fff;
+  border: 1px solid #d1d9ce;
+  box-shadow: 20px 20px 0px #f2faf2;
+  border-radius: 16px;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.benefits-item.type-2 .benefits-img {
+  margin-right: 10px;
+}
+.benefits-item.type-2 .benefits-img img {
+  max-width: 36px;
+  max-height: 36px;
+}
+.benefits-item.type-2 .title {
+  margin-bottom: 0;
+}
+.benefits-item .title {
+  line-height: 1.3em;
+}
+.vacancy-img {
+  display: block;
+  position: relative;
+  padding-top: 57%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.vacancy-img img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s linear;
+}
+.vacancy-item > * + * {
+  margin-top: 10px;
+}
+.text {
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #636662;
+  font-weight: 400;
+}
+.text-cut-2 {
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.vacancy-item a:hover {
+  color: $primaryColor;
+}
+.vacancy-img:hover img {
+  transform: scale(1.05);
+}
+.section_work {
+  margin-top: 100px;
+}
+.advantages-item {
+  background: #fff;
+  border: 1px solid #d1d9ce;
+  box-shadow: 20px 20px 0px #f2faf2;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.advantages-img {
+  position: relative;
+  padding-top: 57%;
+}
+.advantages-img img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.advantages-info {
+  padding: 10px 5px 15px;
+  text-align: center;
+}
+.title {
+  font-weight: 600;
+  color: #212721;
+}
+@media (max-width: 991px) {
+  .banner-align {
+    height: auto;
+    padding: 15px 0;
+  }
+  .bg.desktop {
+    display: none;
+  }
+  .parallax-bg .bg {
+    position: relative;
+  }
+  .bg.mobile {
+    display: block;
+    position: relative;
+    padding-top: 57%;
+    border-radius: 16px;
+  }
+  .opacity {
+    display: none;
+  }
+  .h2 {
+    color: #212721;
+  }
+  .decor-img {
+    display: none;
+  }
+  .title-decor::before {
+    content: none;
+  }
+  .advantages-item {
+    box-shadow: none;
+  }
+  .container-vocation {
+    margin-top: -30px;
+  }
+}
+@media (max-width: 767px) {
+  .h2 {
+    font-size: 22px;
+  }
+  .vacancy-item > * + * {
+    margin-top: 5px;
+  }
+  .container-vocation {
+    margin-top: -50px;
+  }
+  .text {
+    font-size: 14px;
+  }
+  .benefits-item.type-2 {
+    box-shadow: none;
+  }
+}

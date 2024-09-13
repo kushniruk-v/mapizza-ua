@@ -1,0 +1,36 @@
+
+.dialog-back {
+  background-color: rgba(0, 0, 0, 0.41);
+}
+.auth-dialog {
+  width: 560px;
+  max-height: 100%;
+  text-align: center;
+}
+
+.dialog-back-2 {
+  background-color: rgba(0, 0, 0, 0.41);
+}
+.product-dialog {
+  width: 980px;
+  height: 610px;
+}
+.basket-dialog {
+  width: 540px;
+  height: 624px;
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  mat-dialog-container {
+    animation: 1s slideInLeft;
+  }
+ 
+}
+

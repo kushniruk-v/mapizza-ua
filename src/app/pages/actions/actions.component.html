@@ -1,0 +1,55 @@
+<main>
+  <div class="section promotions">
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-6.svg"
+      alt=""
+      style="top: 23%; right: -60px"
+    />
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-5.svg"
+      alt=""
+      style="top: 45%; left: -60px"
+    />
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-12 col-xl-10 text-center">
+          <div class="title title-decor h2">
+            <span>Акції</span>
+          </div>
+        </div>
+      </div>
+      <div class="row news-row promotions justify-content-center">
+        <div class="col-12 col-xl-10">
+          <div class="news-item" *ngFor="let action of userAction">
+            <a class="news-img">
+              <img
+                [routerLink]="['/actions', action.id]"
+                [src]="action.imagePath"
+                alt=""
+              />
+            </a>
+            <div class="news-content">
+              <div
+                [routerLink]="['/actions', action.id]"
+                class="title h3 text-cut-3"
+              >
+                <a>{{ action.title }}</a>
+              </div>
+              <div class="text text-cut-5">
+                <p>{{ action.description }}</p>
+              </div>
+              <a [routerLink]="['/actions', action.id]" class="btn-link">
+                <span>Дізнатись більше </span>
+                <i></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

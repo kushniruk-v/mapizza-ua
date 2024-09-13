@@ -1,0 +1,49 @@
+<div class="section">
+  <div class="container banner">
+    <div class="banner-align">
+      <ng-container
+        *ngIf="
+          currentAction.newFormAction && currentAction.newFormAction.length > 0
+        "
+      >
+        <div class="bg desktop rellax">
+          <img
+            [src]="currentAction.newFormAction[0].additionalImage"
+            alt=""
+            class="bg-img"
+          />
+        </div>
+        <div class="opacity"></div>
+        <div class="row justify-content-center header">
+          <div class="col-lg-10 col-xl-8">
+            <div class="banner-info">
+              <h1 class="h2 title text-center">
+                {{ currentAction.title }}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="section prom-detail-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <div class="text text-lg">
+          <p>{{ currentAction.description }}</p>
+          <div
+            *ngFor="let action of currentAction.newFormAction; let i = index"
+          >
+            <ul *ngIf="action.additionalList">
+              <li *ngFor="let item of action.additionalList.split('.')">
+                {{ item }}.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+
+body {
+  font-family: "MontBlanc";
+}
+.primary {
+  background-color: $primaryColor;
+  color: white;
+  &:hover {
+    color: black;
+    transition: all 0.3s linear;
+  }
+}
+.form-select:focus {
+  border-color: $primaryColor;
+  box-shadow: 0 0 2px 2px $primaryColor;
+}
+input:focus {
+  border-color: $primaryColor;
+  box-shadow: 0 0 2px 2px $primaryColor;
+}
+
+textarea:focus {
+  border-color: $primaryColor;
+  box-shadow: 0 0 2px 2px $primaryColor;
+}
+.progress-bar {
+  background-color: $secondaryColor;
+}

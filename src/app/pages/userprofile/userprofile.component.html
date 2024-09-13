@@ -1,0 +1,166 @@
+<main>
+  <div class="section cabinet-section">
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-6.svg"
+      alt=""
+      style="top: 0px; left: -40px"
+    />
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-5.svg"
+      alt=""
+      style="bottom: 8%; right: -40px"
+    />
+    <div class="spacer-sm"></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8 col-xxl-6 text-center">
+          <h1 class="title title-decor h2">Особистий кабінет</h1>
+        </div>
+      </div>
+      <div class="spacer-xs"></div>
+      <div class="categories-menu">
+        <ul class="categories-list">
+          <li class="categories-list-item active"><a>Особисті дані</a></li>
+        </ul>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8 col-xxl-6">
+          <form class="form-cabinet" *ngIf="user">
+            <div class="form-group">
+              <div class="form-title title h4">Особисті дані</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    [(ngModel)]="user.firstName"
+                    readonly=""
+                    type="text"
+                    class="input"
+                    name="firstName"
+                    placeholder="*Ваше ім'я"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    readonly=""
+                    [(ngModel)]="user.lastName"
+                    type="text"
+                    class="input"
+                    name="lastName"
+                    placeholder="*Ваше прізвище"
+                  />
+                </div>
+              </div>
+              <div>
+                <div class="input-popup-wrapper">
+                  <input
+                    readonly=""
+                    type="date"
+                    [(ngModel)]="user.birthday"
+                    name="birthday"
+                    class="input birthday"
+                    placeholder="Дата народження"
+                    inputmode="text"
+                  />
+                </div>
+                <p>
+                  Якщо це поле не буде заповнено, то ви не зможете отримувати
+                  додаткові бонуси до Дня Вашого народження
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    readonly=""
+                    type="email"
+                    [(ngModel)]="user.email"
+                    name="email"
+                    class="input"
+                    placeholder="*Ваш емейл"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    readonly=""
+                    class="input"
+                    [(ngModel)]="user.phoneNumber"
+                    name="phoneNumber"
+                    type="text"
+                    placeholder="*Ваш номер телефону"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="spacer-xs"></div>
+          <div class="categories-menu">
+            <ul class="categories-list">
+              <li class="categories-list-item active">
+                <a>Історія замовлень</a>
+              </li>
+            </ul>
+          </div>
+          <div class="row justify-content-center d-flex">
+            <div class="col-xl-10 col-xxl-8">
+              <div class="history-order-iiko">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="col-item">№</th>
+                      <th class="col-item">Назва замовлення</th>
+                      <th class="col-item">Сума оплати</th>
+                      <th class="col-item">Статус</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="orders.length > 0">
+                    <tr *ngFor="let order of orders; let i = index">
+                      <td>{{ 1 + i }}</td>
+                      <td>{{ order.name }}</td>
+                      <td>{{ order.price * order.count }} грн</td>
+                      <td>Оплачено</td>
+                    </tr>
+                  </tbody>
+                  <div>
+                    <tbody *ngFor="let order of orders">
+                      <div
+                        *ngIf="
+                          order.additionalProducts &&
+                          order.additionalProducts.length > 0
+                        "
+                      >
+                        Додаткові товари:
+                        <tr
+                          *ngFor="
+                            let product of order.additionalProducts;
+                            let j = index
+                          "
+                        >
+                          <td>{{ 1 + j }}</td>
+                          <td>{{ product.name }} -</td>
+                          <td>{{ product.price }}грн</td>
+                        </tr>
+                      </div>
+                    </tbody>
+                  </div>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="cabinet_address-buttons">
+            <div class="spacer-xs"></div>
+            <button
+              (click)="logOut()"
+              class="btn btn-primary btn-block"
+              type="submit"
+            >
+              <span>Вихід</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

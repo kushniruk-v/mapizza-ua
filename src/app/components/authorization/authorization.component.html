@@ -1,0 +1,115 @@
+<ng-container *ngIf="!isModal">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-4 card">
+        <h4 class="mt-3 text-center">Вхід адміністратора</h4>
+        <form [formGroup]="authForm" (ngSubmit)="loginAdmin()">
+          <div class="mx-4">
+            <div class="mb-3">
+              <input
+                formControlName="email"
+                name="email"
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="*Ваш email"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="path" class="form-label"></label>
+              <input
+                formControlName="password"
+                name="password"
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="*Пароль"
+              />
+            </div>
+            <button
+              [disabled]="authForm.invalid"
+              type="submit"
+              class="btn primary"
+            >
+              Увійти в кабінет
+            </button>
+          </div>
+        </form>
+        <div class="popup-links-wrapper">
+          <div>
+            Ще не зареєстровані?
+            <a (click)="registerAdmin()" class="register" data-rel="3"
+              >Зареєструватися</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isModal">
+  <div class="col-4 m-auto card mt-5">
+    <h4 class="mt-3 text-center">Реєстрація</h4>
+    <form [formGroup]="registerForm" class="mx-4">
+      <div class="mb-3">
+        <input
+          formControlName="firstName"
+          name="firstName"
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="*Ваше ім‘я"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          formControlName="lastName"
+          name="lastName"
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="*Ваше прізвище"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          formControlName="email"
+          name="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="*Ваш email"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          formControlName="password"
+          name="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="*Пароль"
+        />
+      </div>
+      <div class="">
+        <input
+          formControlName="repeatpassword"
+          name="repeatpassword"
+          type="password"
+          class="form-control"
+          id="repeatpassword"
+          placeholder="*повторіть пароль"
+        />
+      </div>
+      <button (click)="registerAdmin()" type="submit" class="btn primary mt-3">
+        Зареєструватися
+      </button>
+      <div class="popup-links-wrapper mt-4 d-flex">
+        <div class="mx-3">
+          Вже зареєстровані?
+          <a (click)="loginAdmin()" class="register" data-rel="3">Увійти</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-container>

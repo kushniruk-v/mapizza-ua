@@ -1,0 +1,68 @@
+@import "../shared/styles/variables";
+@import "../shared/styles/font";
+
+body{
+  font-family:"MontBlanc" ;
+}
+.nav-item {
+  width: 150px;
+  height: 50px;
+  background-color: $secondaryColor;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background: $primaryColor;
+    transition: all 0.3s linear;
+  }
+}
+.active {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: $primaryColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.primary {
+  width: 150px;
+  height: 50px;
+  background: $primaryColor;
+
+  &:hover {
+    background: $secondaryColor;
+    transition: all 0.3s linear;
+  }
+}
+.title-decor {
+  display: inline-block;
+  position: relative;
+}
+title {
+  font-weight: 600;
+  color: #212721;
+}
+.title-decor {
+  display: inline-block;
+  position: relative;
+}
+.title-decor:before {
+  top: -15px;
+  left: -35px;
+  width: 50px;
+  height: 40px;
+}
+.title-decor:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -35px;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

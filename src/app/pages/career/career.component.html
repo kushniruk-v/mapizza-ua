@@ -1,0 +1,169 @@
+<div class="section">
+  <div class="container banner">
+    <div class="banner-align">
+      <div class="parallax-bg">
+        <div class="bg desktop rellax"></div>
+        <div class="bg mobile"></div>
+      </div>
+      <div class="opacity"></div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="banner-info">
+            <h1 class="h2 text-center">Вакансії</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section vacancy">
+  <img
+    class="decor-img rellax"
+    src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-5.svg"
+    alt=""
+    style="
+      top: 0px;
+      left: -40px;
+      transform: translate3d(0px, 4px, 0px) scaleX(-1);
+    "
+  />
+  <img
+    class="decor-img rellax"
+    data-rellax-speed="-1"
+    src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-6.svg"
+    alt=""
+    style="
+      bottom: 12%;
+      right: -40px;
+      transform: translate3d(0px, 0px, 0px) scaleX(-1);
+    "
+  />
+  <div class="container container-vocation">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="title title-decor h2">
+          <span>Наші вакансії</span>
+        </div>
+      </div>
+    </div>
+    <div class="row advantages-row justify-content-center">
+      <div class="col-xl-3 col-sm-6">
+        <div class="benefits-item type-2">
+          <div class="benefits-img">
+            <img
+              src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-1.svg"
+              alt="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-1.svg"
+            />
+          </div>
+          <div class="title h5">Чудовий старт кар’єри</div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="benefits-item type-2">
+          <div class="benefits-img">
+            <img
+              src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-2.svg"
+              alt="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-2.svg"
+            />
+          </div>
+          <div class="title h5">Контакти</div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="benefits-item type-2">
+          <div class="benefits-img">
+            <img
+              src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-3.svg"
+              alt="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-3.svg"
+            />
+          </div>
+          <div class="title h5">Гнучкий графік роботи</div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="benefits-item type-2">
+          <div class="benefits-img">
+            <img
+              src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-4.svg"
+              alt="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-4.svg"
+            />
+          </div>
+          <div class="title h5">Регулярні виплати</div>
+        </div>
+      </div>
+    </div>
+    <div class="row vacancy-row">
+      <div class="col-12 col-md-6" *ngFor="let careers of userCareer">
+        <div class="vacancy-item">
+          <a class="vacancy-img">
+            <img [src]="careers.imagePath" alt="" />
+          </a>
+          <div class="title h5 text-cut-2">
+            <a>
+              {{ careers.title }}
+            </a>
+          </div>
+          <div class="text text-cut-2">
+            <p>{{ careers.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section_work">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="title title-decor h2">
+          <span>Працюй з нами!</span>
+        </div>
+      </div>
+    </div>
+    <div class="row advantages-row justify-content-center mt-3">
+      <div class="col-xl-3 col-sm-6">
+        <div class="advantages-item">
+          <div class="advantages-img">
+            <img src="assets/images/druzhnij-kolektyv.webp" alt="" />
+          </div>
+          <div class="advantages-info">
+            <div class="title h5">Дружній колектив</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="advantages-item">
+          <div class="advantages-img">
+            <img src="assets/images/advantages-img-2.webp" alt="" />
+          </div>
+          <div class="advantages-info">
+            <div class="title h5">Реальний кар’єрний ріст</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="advantages-item">
+          <div class="advantages-img">
+            <img
+              src="assets/images/0-02-05-6297c2e09fa2b26836d3bd95d1921095e98e3df1de2323a561027cd4ab87eb55_e03f49be.webp"
+              alt=""
+            />
+          </div>
+          <div class="advantages-info">
+            <div class="title h5">Погодинна оплата праці</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="advantages-item">
+          <div class="advantages-img">
+            <img src="assets/images/ma-pizza (1).webp" alt="" />
+          </div>
+          <div class="advantages-info">
+            <div class="title h5">Гнучкий графік роботи</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

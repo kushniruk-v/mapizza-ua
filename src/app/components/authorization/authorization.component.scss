@@ -1,0 +1,55 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+
+body{
+  font-family:"MontBlanc" ;
+}
+.card {
+  width: 500px;
+  height: 100%;
+  margin-top: 50px;
+}
+.primary {
+  width: 428px;
+  height: 50px;
+
+  background-color: $primaryColor;
+  color: white;
+}
+.primary:hover {
+  background: $secondaryColor;
+  transition: all 0.3s linear;
+}
+input:focus {
+  border-color: $primaryColor;
+  box-shadow: 0 0 2px 2px $primaryColor;
+}
+.popup-links-wrapper {
+  display: flex;
+  margin: 20px 25px;
+}
+.register {
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 135px;
+  color: $secondaryColor;
+  &:hover {
+    color: $primaryColor;
+  }
+}
+@media (max-width: 767px) {
+  .card {
+    width: 280px;
+  }
+  .primary {
+    width: 206px;
+    height: 40px;
+  }
+  .popup-links-wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .register {
+    margin-left: 0px;
+  }
+}

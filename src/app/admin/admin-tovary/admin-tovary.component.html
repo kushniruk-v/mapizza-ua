@@ -1,0 +1,236 @@
+<div class="row">
+  <div class="col-4 my-5 mx-4">
+    <button type="button" class="btn primary" (click)="addTovary()">
+      Додати товар
+    </button>
+  </div>
+  <div *ngIf="!isModal" class="col-8 mx-4 modal" [class.modal]="isOpen">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Категорія</th>
+          <th scope="col">Категорія продукту</th>
+          <th scope="col">Шлях категр.продукту</th>
+          <th scope="col">Картинка категор.продукту</th>
+          <th scope="col">Назва</th>
+          <th scope="col">Шлях</th>
+          <th scope="col">Опис</th>
+          <th scope="col">Вага</th>
+          <th scope="col">Ціна</th>
+          <th scope="col">Бонус</th>
+          <th scope="col">Картинка</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tovary of adminTovary">
+          <td>№{{ tovary.id }}</td>
+          <td>{{ tovary.category.name }}</td>
+          <td>{{ tovary.categoryTovary }}</td>
+          <td>{{ tovary.categoryTovarPath }}</td>
+          <img [src]="tovary.imagePathCategory" alt="" height="50px" />
+          <td>{{ tovary.name }}</td>
+          <td>{{ tovary.path }}</td>
+          <td>
+            {{ tovary.description | slice : 0 : 15 }}
+            <span *ngIf="tovary.description.length > 15">...</span>
+          </td>
+          <td>{{ tovary.weight }}</td>
+          <td>{{ tovary.price }}</td>
+          <td>{{ tovary.bonus }}</td>
+          <td>
+            <img [src]="tovary.imagePath" alt="" height="50px" />
+          </td>
+          <td>
+            <div class="list-group">
+              <button
+                (click)="editTovary(tovary)"
+                type="button"
+                class="btn nav-item w-100 mb-1 btn-warning"
+              >
+                Редагувати
+              </button>
+              <button
+                (click)="deleteTovary(tovary)"
+                type="button"
+                class="btn nav-item w-100 btn-danger"
+              >
+                Видалити
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-container *ngIf="isModal">
+    <form [formGroup]="tovaryForm" (ngSubmit)="saveTovary()">
+      <div class="col mb-5 mx-4">
+        <label for="name" class="form-label">Категорії</label>
+        <select formControlName="category" class="form-select w-25">
+          <option [ngValue]="category" *ngFor="let category of adminCategories">
+            {{ category.name }}
+          </option>
+        </select>
+        <div class="category-form d-flex w-75 mt-5">
+          <div class="category-label">
+            <label for="name" class="form-label">Категорія Продукту</label>
+            <select formControlName="categoryTovary" class="form-select w-100">
+              <option value=""></option>
+              <option value="Гостра">Гостра</option>
+              <option value="М‘ясо">М‘ясо</option>
+              <option value="Овочі">Овочі</option>
+              <option value="Морепродукти">Морепродукти</option>
+            </select>
+          </div>
+          <ng-container *ngIf="!isUploadedCategory">
+            <div class="mx-5 mt-2">
+              <label for="formFile" class="form-label w-25"></label>
+              <input
+                class="form-control w-100"
+                type="file"
+                id="formFile"
+                (change)="uploadCategoryTovary($event)"
+              />
+            </div>
+            <div class="progress mt-5" style="width: 20%">
+              <div
+                class="progress-bar progress-bar-striped"
+                role="progressbar"
+                [style.width.%]="uploadPercentCategory"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="isUploadedCategory">
+            <img
+              [src]="valueByControlCategory('imagePathCategory')"
+              alt=""
+              height="50px "
+              class="mx-4 my-3"
+            />
+            <button
+              type="button"
+              class="btn primary my-4"
+              style="height: 100%"
+              (click)="deleteImageCategory()"
+            >
+              Видалити
+            </button>
+          </ng-container>
+        </div>
+      </div>
+      <div class="mx-4">
+        <div class="d-flex">
+          <label for="weight" class="form-label"></label>
+          <input
+            formControlName="categoryTovarPath"
+            name="categoryTovarPath"
+            type="text"
+            class="form-control w-25"
+            id="categoryTovarPathweight"
+            placeholder="*Шлях категорії продукту"
+          />
+          <label for="name" class="form-label"></label>
+          <input
+            formControlName="name"
+            name="name"
+            type="text"
+            class="form-control w-25 mx-4"
+            id="name"
+            placeholder="*Назва"
+          />
+          <label for="path" class="form-label"></label>
+          <input
+            formControlName="path"
+            name="path"
+            type="text"
+            class="form-control w-25 mx-4"
+            id="path"
+            placeholder="*Шлях"
+          />
+        </div>
+        <label for="description"></label>
+        <textarea
+          formControlName="description"
+          name="description"
+          id="description"
+          class="form-control w-50 my-3"
+          placeholder="*Опис"
+          id="floatingTextarea2"
+          style="height: 100px"
+        ></textarea>
+        <div class="d-flex w-50">
+          <label for="weight" class="form-label"></label>
+          <input
+            formControlName="weight"
+            name="weight"
+            type="text"
+            class="form-control"
+            id="weight"
+            placeholder="*Вага"
+          />
+          <label for="price" class="form-label"></label>
+          <input
+            formControlName="price"
+            name="price"
+            type="text"
+            class="form-control mx-3"
+            id="price"
+            placeholder="*Ціна"
+          />
+          <input
+            formControlName="bonus"
+            name="bonus"
+            type="text"
+            class="form-control mx-3"
+            id="price"
+            placeholder="*Бонус"
+          />
+        </div>
+      </div>
+      <ng-container *ngIf="!isUploaded">
+        <div class="mb-3">
+          <label for="formFile" class="form-label"></label>
+          <input
+            class="form-control w-25 mx-4"
+            type="file"
+            id="formFile"
+            (change)="upload($event)"
+          />
+        </div>
+        <div class="progress mx-4 mb-3" style="width: 50%">
+          <div
+            class="progress-bar progress-bar-striped"
+            role="progressbar"
+            [style.width.%]="uploadPercent"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isUploaded">
+        <img
+          [src]="valueByControl('imagePath')"
+          alt=""
+          height="100px "
+          class="mx-4 my-3"
+        />
+        <button type="button" class="btn primary" (click)="deleteImage()">
+          Видалити
+        </button>
+      </ng-container>
+      <div class="col-4 my-2 mx-4">
+        <button
+          [disabled]="tovaryForm.invalid"
+          type="submit"
+          class="btn primary"
+        >
+          Зберегти
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</div>

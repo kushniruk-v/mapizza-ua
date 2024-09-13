@@ -1,0 +1,128 @@
+<div class="container">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    (click)="closeModal()"
+    height="24"
+    width="24"
+    class="btn-xmark"
+    viewBox="0 0 384 512"
+  >
+    <path
+      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+    />
+  </svg>
+  <div class="cart_title">
+    <div class="h4 title-decor">Кошик</div>
+  </div>
+  <div class="cart-popup-out">
+    <div class="cart_items">
+      <div *ngFor="let tovary of userTovary; let i = index" class="prod_horiz">
+        <a class="prod_horiz-img">
+          <img [src]="tovary.imagePath" class="img" [alt]="" />
+        </a>
+        <div class="prod_horiz-desc">
+          <div class="prod-title-wrap">
+            <a class="title h5">{{ tovary.name }}</a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg  "
+              (click)="deleteTovar(tovary)"
+              height="12"
+              width="12"
+              class="btn-xmark"
+              viewBox="0 0 384 512"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              />
+            </svg>
+          </div>
+          <div class="prod_horiz-controls">
+            <div class="added_ing-wrap">
+              <div
+                class="ing_output-inner"
+                *ngIf="
+                  tovary.additionalProducts &&
+                  tovary.additionalProducts.length > 0
+                "
+              >
+                <div
+                  class="ing_control"
+                  *ngFor="
+                    let product of tovary.additionalProducts;
+                    let j = index;
+                    let isFirst = first
+                  "
+                >
+                  <p
+                    *ngIf="tovary.additionalProducts && isFirst"
+                    class="ing_control-text mt-2"
+                  >
+                    Додано:
+                  </p>
+                  <div class="ing_control-title">
+                    {{ product.name }}
+                    <button
+                      (click)="removeAdditionalProduct(i, j)"
+                      class="cart-dropdown-delete"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="prod_horiz-controls">
+                <div class="price_default">
+                  <b>{{ tovary.price }}</b> грн
+                </div>
+                <div class="thumb-input">
+                  <div class="thumb-input-number">
+                    <button
+                      (click)="tovaryCount(tovary, false)"
+                      type="button"
+                      class="decrement"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="product-qty"
+                      value="1"
+                      [value]="tovary.count"
+                      readonly=""
+                    />
+                    <button
+                      (click)="tovaryCount(tovary, true)"
+                      type="button"
+                      class="increment"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="price-wrap">
+                  <b class="price">{{ tovary.price * tovary.count }}</b> грн
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!userTovary.length" class="cart-empty-message">
+        <div class="title h5">Кошик порожній</div>
+        <button type="submit" (click)="goHomePage()" class="btn primary">
+          Перейти до каталогу
+        </button>
+      </div>
+      <div *ngIf="userTovary.length" class="cart_bottom">
+        <div class="cart_bottom_flex">
+          <div class="cart_price-wrap">
+            Сума: <b class="card-total-price">{{ total }}</b> грн
+          </div>
+          <button (click)="toOrder()" type="submit" class="btn primary order">
+            Оформити замовлення
+          </button>
+        </div>
+        <div class="cart_bonus-wrap">
+          Нарахується бонусів: <b>{{ bonus }} </b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,245 @@
+<div class="row">
+  <div class="col-4 my-5 mx-4">
+    <button type="button" class="btn primary" (click)="addAction()">
+      Додати акцію
+    </button>
+  </div>
+  <div *ngIf="!isModal" class="col-8 mx-4 modal" [class.modal]="isOpen">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Назва</th>
+          <th scope="col">Заголовок</th>
+          <th scope="col">Опис</th>
+          <th scope="col">Картинка</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let action of adminActions">
+          <td>{{ action.name }}</td>
+          <td>{{ action.title }}</td>
+          <td>
+            {{ action.description | slice : 0 : 40
+            }}<span *ngIf="action.description.length > 40">...</span>
+          </td>
+          <td>
+            <img [src]="action.imagePath" alt="" height="50px" />
+          </td>
+          <td>
+            <div class="list-group">
+              <button
+                (click)="editAction(action)"
+                type="button"
+                class="btn nav-item w-100 mb-1 btn-warning"
+              >
+                Редагувати
+              </button>
+              <button
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="deleteAction()"
+                type="button"
+                class="btn nav-item w-100 btn-danger"
+              >
+                Видалити
+              </button>
+              <!-- Modal -->
+              <ng-container>
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          Ви справді хочете видалити акцію?
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
+                          Ні
+                        </button>
+                        <button
+                          *ngIf="isDelete"
+                          (click)="deleteModalAction(action)"
+                          type="button"
+                          data-bs-dismiss="modal"
+                          class="btn primary"
+                        >
+                          Так
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Додаткова картинка</th>
+          <th scope="col">Додатковий список</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let news of adminActions; let i = index">
+        <tr *ngFor="let additional of news.newFormAction; let j = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img [src]="additional.additionalImage" alt="" height="50px" />
+          </td>
+          <td>{{ additional.additionalList }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-container *ngIf="isModal">
+    <form [formGroup]="actionForm" (ngSubmit)="saveAction()">
+      <div class="d-flex mx-4">
+        <label for="name" class="form-label"></label>
+        <input
+          formControlName="name"
+          name="name"
+          type="text"
+          class="form-control w-25"
+          id="name"
+          placeholder="*Назва"
+        />
+        <label for="title" class="form-label"></label>
+        <input
+          formControlName="title"
+          name="title"
+          type="text"
+          class="form-control w-25 mx-4"
+          id="title"
+          placeholder="*Заголовок"
+        />
+      </div>
+      <label for="description"></label>
+      <textarea
+        formControlName="description"
+        name="description"
+        id="description"
+        class="form-control w-50 my-3 mx-4"
+        placeholder="*Опис"
+        id="floatingTextarea2"
+        style="height: 100px"
+      ></textarea>
+      <ng-container *ngIf="!isUploaded">
+        <div class="mb-3">
+          <label for="formFile" class="form-label"></label>
+          <input
+            class="form-control w-25 mx-4"
+            type="file"
+            id="formFile"
+            (change)="upload($event)"
+          />
+        </div>
+        <div class="progress mx-4 mb-3" style="width: 50%">
+          <div
+            class="progress-bar progress-bar-striped"
+            role="progressbar"
+            [style.width.%]="uploadPercent"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isUploaded">
+        <img [src]="valueByControl('imagePath')" height="100px " class="mx-4" />
+        <button type="button" class="btn btn-danger" (click)="deleteImage()">
+          Видалити
+        </button>
+      </ng-container>
+      <div class="col-4 my-2 mx-4">
+        <button
+          [disabled]="actionForm.invalid"
+          type="submit"
+          class="btn primary"
+        >
+          Зберегти
+        </button>
+      </div>
+    </form>
+    <form [formGroup]="actionForm">
+      <div formArrayName="newFormAction">
+        <div
+          *ngFor="let additional of addNewsArray.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <h4 class="ms-4">Додатковий список - {{ i + 1 }}</h4>
+          <label for="additionalList"></label>
+          <textarea
+            formControlName="additionalList"
+            name="additionalList"
+            id="additionalList"
+            class="form-control w-50 my-3 mx-4"
+            placeholder="*Додатковий список"
+            style="height: 100px"
+          ></textarea>
+          <button class="btn btn-danger ms-4" (click)="deleteAdditionalNews(i)">
+            Видалити додатковий список
+          </button>
+          <ng-container *ngIf="!isUploadedAdd">
+            <div class="mb-3">
+              <label for="formFile" class="form-label"></label>
+              <input
+                class="form-control w-25 mx-4"
+                type="file"
+                id="formFile"
+                (change)="uploadAdd($event)"
+              />
+            </div>
+            <div class="progress mx-4 mb-3" style="width: 50%">
+              <div
+                class="progress-bar progress-bar-striped"
+                role="progressbar"
+                [style.width.%]="uploadPercentAdd"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </ng-container>
+          <ng-container>
+            <img
+              [src]="valueByControlAdd('additionalImage', i)"
+              id="additionalImage"
+              height="100px "
+              class="mx-4"
+            />
+            <button
+              *ngIf="isUploadedAdd"
+              (click)="deleteImageAdd(i)"
+              type="button"
+              class="btn btn-danger"
+            >
+              Видалити
+            </button>
+          </ng-container>
+        </div>
+        <button class="btn primary ms-4 mt-4" (click)="addPassenger()">
+          Додати додатковий список
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</div>

@@ -1,0 +1,167 @@
+<div class="row">
+  <div class="col-4 my-5 mx-4">
+    <button type="button" class="btn primary" (click)="addAdditional()">
+      Додати додатковий складник
+    </button>
+  </div>
+  <div *ngIf="!isModal" class="col-8 mx-4 modal" [class.modal]="isOpen">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Назва</th>
+          <th scope="col">Вага</th>
+          <th scope="col">Ціна</th>
+          <th scope="col">Картинка</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let additional of adminAdditionalComponents">
+          <td>№{{ additional.id }}</td>
+          <td>{{ additional.name }}</td>
+          <td>{{ additional.weight }}</td>
+          <td>{{ additional.price }}</td>
+          <td>
+            <img [src]="additional.imagePath" alt="" height="50px" />
+          </td>
+          <td>
+            <div class="list-group">
+              <button
+                (click)="editAdditionalComponents(additional)"
+                type="button"
+                class="btn nav-item w-100 mb-1 btn-warning"
+              >
+                Редагувати
+              </button>
+              <button
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="deleteAdditionalComponents()"
+                type="button"
+                class="btn nav-item w-100 btn-danger"
+              >
+                Видалити
+              </button>
+
+              <!-- Modal -->
+              <ng-container>
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          Ви справді хочете видалити додатковий складник?
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
+                          Ні
+                        </button>
+                        <button
+                          *ngIf="isDelete"
+                          (click)="deleteModalAdditionalComponents(additional)"
+                          type="button"
+                          data-bs-dismiss="modal"
+                          class="btn primary"
+                        >
+                          Так
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-container *ngIf="isModal">
+    <form [formGroup]="additionalForm" (ngSubmit)="saveAdditionalComponents()">
+      <div class="d-flex mx-4 mb-3">
+        <label for="name" class="form-label"></label>
+        <input
+          formControlName="name"
+          name="name"
+          type="text"
+          class="form-control w-25"
+          id="name"
+          placeholder="*Назва"
+        />
+      </div>
+      <div class="d-flex w-50 mx-4">
+        <label for="weight" class="form-label"></label>
+        <input
+          formControlName="weight"
+          name="weight"
+          type="text"
+          class="form-control"
+          id="weight"
+          placeholder="*Вага"
+        />
+        <label for="price" class="form-label"></label>
+        <input
+          formControlName="price"
+          name="price"
+          type="text"
+          class="form-control mx-3"
+          id="price"
+          placeholder="*Ціна"
+        />
+      </div>
+      <ng-container *ngIf="!isUploaded">
+        <div class="mb-3">
+          <label for="formFile" class="form-label"></label>
+          <input
+            class="form-control w-25 mx-4"
+            type="file"
+            id="formFile"
+            (change)="upload($event)"
+          />
+        </div>
+        <div class="progress mx-4 mb-3" style="width: 50%">
+          <div
+            class="progress-bar progress-bar-striped"
+            role="progressbar"
+            [style.width.%]="uploadPercent"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isUploaded">
+        <img [src]="valueByControl('imagePath')" height="100px " class="mx-4" />
+        <button (click)="deleteImage()" type="button" class="btn btn-danger">
+          Видалити
+        </button>
+      </ng-container>
+      <div class="col-4 my-2 mx-4">
+        <button
+          [disabled]="additionalForm.invalid"
+          type="submit"
+          class="btn primary"
+        >
+          Зберегти
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</div>

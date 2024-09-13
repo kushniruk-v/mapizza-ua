@@ -1,0 +1,197 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+
+body{
+  font-family: "MontBlanc", sans-serif;
+}
+.title-decor {
+  display: inline-block;
+  position: relative;
+  margin-top: 50px;
+}
+.title {
+  font-weight: 600;
+  font-size: 18px;
+}
+h1 {
+  font-size: 34px;
+  font-weight: 600;
+}
+.title-decor:before {
+  top: -15px;
+  left: -35px;
+  width: 50px;
+  height: 40px;
+}
+.title-decor:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -35px;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.text.text-lg {
+  font-size: 20px;
+}
+.text {
+  line-height: 1.5em;
+  color: #636662;
+  font-weight: 400;
+}
+.text-left {
+  text-align: left;
+}
+.delivery-block {
+  display: flex;
+  justify-content: center;
+}
+.terms-delivery-row {
+  margin-bottom: -30px;
+}
+.terms-delivery-row > [class*="col"] {
+  margin-bottom: 50px;
+}
+.delivery-item {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #d1d9ce;
+  box-sizing: border-box;
+  box-shadow: 20px 20px 0px #f2faf2;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+}
+.delivery-item .zone-img {
+  margin-right: 15px;
+  margin-top: 5px;
+}
+.delivery-item .zone-img img {
+  width: 36px;
+  height: 36px;
+}
+.delivery-item .zone-info-wrapper {
+  width: 100%;
+}
+.zone-info {
+  margin-left: -31px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #636662;
+  font-weight: 400;
+}
+.delivery-item .zone-info li {
+  display: flex;
+  justify-content: space-between;
+}
+.terms-delivery-row {
+  margin-bottom: -30px;
+}
+
+iframe {
+  width: 100%;
+  height: 480px;
+  margin-top: 15px;
+}
+
+.payment-block {
+  margin: 0 0 30px 0;
+}
+.payment-item {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #d1d9ce;
+  box-sizing: border-box;
+  box-shadow: 20px 20px 0px #f2faf2;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+}
+.payment-item-info {
+  width: 354px;
+  height: 75px;
+  margin-left: 16px;
+}
+.payment-item-info p {
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #636662;
+  font-family: "MontBlanc", sans-serif;
+  font-weight: 400;
+}
+@media (max-width: 991px) {
+  .title-decor::before {
+    content: none;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .text.text-lg {
+    font-size: 18px;
+  }
+  .delivery-item {
+    max-width: 480px;
+  }
+  iframe {
+    width: 696px;
+    height: 380px;
+  }
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+  }
+  .text > * {
+    margin-bottom: 10px;
+  }
+  .terms-delivery-row {
+    margin-top: 10px;
+  }
+  .zone-info {
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+  }
+  .terms-delivery-row > [class*="col"] {
+    margin-bottom: 15px;
+  }
+  .delivery-item {
+    box-shadow: none;
+    padding: 15px;
+  }
+  .delivery-item .zone-img {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+  .delivery-item .zone-info li {
+    display: inline-block;
+  }
+  iframe {
+    width: 100%;
+    height: 440px;
+    margin-top: 25px;
+  }
+  .payment-item {
+    box-shadow: none;
+    padding: 15px;
+  }
+  .payment-item .payment-img {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+  .terms-delivery-row {
+    margin-top: 10px;
+  }
+  .payment-item-info {
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+  }
+  .text > *:last-child {
+    margin-bottom: 0;
+  }
+}

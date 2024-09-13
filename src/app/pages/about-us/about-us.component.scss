@@ -1,0 +1,232 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+
+body{
+  font-family:"MontBlanc" ;
+}
+.section {
+  position: relative;
+}
+.banner-align {
+  display: table-cell;
+  vertical-align: bottom;
+  position: relative;
+  overflow: hidden;
+  width: 10000px;
+  padding: 30px 0;
+  height: 320px;
+  z-index: 1;
+  border-radius: 16px;
+}
+.banner img {
+  width: 100%;
+  height: 80%;
+  border-radius: 16px;
+}
+.banner-info {
+  position: relative;
+  z-index: 10;
+}
+.title {
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  font-family: "MontBlanc", sans-serif;
+  font-size: 28px;
+  position: relative;
+  bottom: 60px;
+}
+.benefits-wrapper {
+  position: relative;
+  background: #fff;
+  border: 1px solid #d1d9ce;
+  border-radius: 25px;
+  padding: 30px;
+}
+.b-shadow {
+  box-shadow: 20px 20px 0px #f2faf2;
+}
+.benefits-wrapper .decor-img.left {
+  top: -120px;
+  left: -140px;
+}
+.benefits-wrapper .decor-img {
+  position: absolute;
+  z-index: -1;
+  max-width: 240px;
+  max-height: 240px;
+}
+
+.benefits-row {
+  --bs-gutter-x: 30px;
+  margin-bottom: -30px;
+}
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+}
+.benefits-img {
+  margin-bottom: 10px;
+}
+.benefits-img img {
+  max-width: 60px;
+  max-height: 60px;
+  display: block;
+}
+
+.benefits-info {
+  line-height: 1.3em;
+  font-size: 16px;
+  color: #636662;
+}
+
+.section-info {
+  margin-top: 70px;
+}
+
+.h2 {
+  font-size: 28px;
+}
+.benefits-info {
+  width: 241px;
+  height: 62px;
+}
+.block-wrapper {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+}
+
+.block-info {
+  align-self: center;
+  max-width: 670px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.text {
+  font-size: 18px;
+  color: #636662;
+  font-weight: 400;
+}
+.text > *:last-child {
+  margin-bottom: 0;
+}
+
+.block-img {
+  position: relative;
+  overflow: hidden;
+  padding-top: 30%;
+  width: 52%;
+  flex-shrink: 0;
+  border-radius: 25px;
+  object-fit: cover;
+}
+.block-img img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text > * {
+  margin-bottom: 20px;
+}
+.img-info {
+  width: 734px;
+  height: 614px;
+  margin: 0 auto;
+}
+.img-info img {
+  width: 734px;
+  height: 614px;
+  border-radius: 15px;
+}
+.title-decor {
+  display: inline-block;
+  position: relative;
+}
+.title-decor:before {
+  top: -15px;
+  left: -35px;
+  width: 50px;
+  height: 40px;
+}
+.title-decor:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -35px;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+video {
+  width: 734px;
+  height: 413px;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .banner-align {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .banner-info .title {
+    position: relative;
+    top: 10px;
+    color: black;
+  }
+  .title-decor::before {
+    content: none;
+  }
+  .h2 {
+    font-size: 26px;
+  }
+  .benefits-wrapper .decor-img {
+    display: none;
+  }
+  .block-wrapper {
+    flex-direction: column;
+  }
+  .block-img {
+    border-radius: 16px;
+    padding-top: 57%;
+    width: 100%;
+    order: -1;
+  }
+  .block-info {
+    max-width: 100%;
+    padding: 10px 0 0;
+  }
+  video {
+    width: 676px;
+    height: 392px;
+  }
+  p img {
+    width: 696px;
+    height: 463px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+}
+@media (max-width: 767px) {
+  .h2 {
+    font-size: 22px;
+  }
+  .h5 {
+    font-size: 18px;
+  }
+  video {
+    width: 296px;
+    height: 166px;
+  }
+  p img {
+    width: 296px;
+    height: 166px;
+  }
+}

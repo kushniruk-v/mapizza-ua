@@ -1,0 +1,52 @@
+<div class="section">
+  <div class="container banner">
+    <div class="banner-align">
+      <ng-container
+        *ngIf="currentNews.newFormNews && currentNews.newFormNews.length > 0"
+      >
+        <div class="bg desktop rellax">
+          <img
+            [src]="currentNews.newFormNews[0].additionalImage"
+            alt=""
+            class="bg-img"
+          />
+        </div>
+        <div class="opacity"></div>
+        <div class="row justify-content-center header">
+          <div class="col-lg-10 col-xl-8">
+            <div class="banner-info">
+              <h1 class="h2 title text-center">
+                {{ currentNews.newFormNews[0].header }}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="section prom-detail-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <div class="text text-lg">
+          <p>{{ currentNews.newFormNews[0].additionalDescription }}</p>
+          <h2>{{ currentNews.newFormNews[1].header }}</h2>
+          <p>{{ currentNews.newFormNews[1].additionalDescription }}</p>
+          <p>
+            <img [src]="currentNews.newFormNews[1].additionalImage" alt="" />
+          </p>
+          <h2>{{ currentNews.newFormNews[2].header }}</h2>
+          <p>{{ currentNews.newFormNews[2].additionalDescription }}</p>
+          <div *ngFor="let news of currentNews.newFormNews; let i = index">
+            <ul *ngIf="news.additionalList">
+              <li *ngFor="let item of news.additionalList.split(';')">
+                {{ item }};
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

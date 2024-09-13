@@ -1,0 +1,904 @@
+<main>
+  <div class="section">
+    <div class="banner-slider">
+      <div class="container">
+        <div class="swiper-entry">
+          <swiper-container
+            #swiper1
+            class="mySwiper"
+            pagination="true"
+            pagination-clickable="true"
+            autoplay="true"
+          >
+            <swiper-slide class="swiper-container">
+              <div class="banner-slide">
+                <div class="row">
+                  <div class="col-lg-5 order-lg-0 align-self-xl-center">
+                    <div class="banner-content">
+                      <div class="banner-decor">
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/banner-decor.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="title h1 text-cut-3">
+                        Середній час доставки 29 хв!
+                      </div>
+                      <div class="text text-cut-5">
+                        <p>*у жовту зону до 59 хв</p>
+                      </div>
+                      <a class="btn btn-primary" href="#pizza">
+                        <span>Замовити</span>
+                        <i></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 align-self-xl-end">
+                    <div class="banner-imgs">
+                      <img src="assets/images/dostavka-moped.webp" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="banner-slide">
+                <div class="row">
+                  <div class="col-lg-5 order-lg-0 align-self-xl-center">
+                    <div class="banner-content">
+                      <div class="banner-decor">
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/banner-decor.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="title h1 text-cut-3">Акція 3+1!</div>
+                      <div class="text text-cut-5">
+                        <p>
+                          <span
+                            >Замовляйте чотири піци та отримуйте одну з них
+                            безкоштовно!</span
+                          >
+                        </p>
+                        <p><span>*акція діє з п’ятниці по неділю</span></p>
+                      </div>
+                      <a class="btn btn-primary" href="#pizza">
+                        <span>Замовити</span>
+                        <i></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 align-self-xl-end">
+                    <div class="banner-imgs">
+                      <img src="assets/images/31.webp" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="banner-slide">
+                <div class="row">
+                  <div class="col-lg-5 order-lg-0 align-self-xl-center">
+                    <div class="banner-content">
+                      <div class="banner-decor">
+                        <img
+                          src="https://mapizza.com.ua/wp-content/uploads/2021/09/banner-decor.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="title h1 text-cut-3">-15% на самовивіз!</div>
+                      <div class="text text-cut-5">
+                        <p>
+                          Роби замовлення на самовивіз та отримуй -15% на піци,
+                          салати та десерти!
+                        </p>
+                      </div>
+                      <a class="btn btn-primary" href="#pizza">
+                        <span>Замовити</span>
+                        <i></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 align-self-xl-end">
+                    <div class="banner-imgs">
+                      <img src="assets/images/15.webp" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper-container>
+          <div class="banner-controls">
+            <div class="swiper-button-prev" (click)="onSlidePrev()">
+              <i>
+                <svg
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 8.00004V5.33004C1 2.02005 3.35 0.660045 6.22 2.32005L8.53 3.66004L10.84 5.00004C13.71 6.66004 13.71 9.37004 10.84 11.03L8.53 12.37L6.22 13.71C3.35 15.34 1 13.99 1 10.67V8.00004Z"
+                    stroke-width="1.5"
+                  ></path>
+                </svg>
+              </i>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next mx-3" (click)="onSlideNext()">
+              <i>
+                <svg
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 8.00004V5.33004C1 2.02005 3.35 0.660045 6.22 2.32005L8.53 3.66004L10.84 5.00004C13.71 6.66004 13.71 9.37004 10.84 11.03L8.53 12.37L6.22 13.71C3.35 15.34 1 13.99 1 10.67V8.00004Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <h1 class="title title-decor h2">Піца Львів</h1>
+      <div class="products-wrapper">
+        <div class="row product-row">
+          <div
+            class="col-sm-6 col-lg-4 col-xl-43"
+            *ngFor="let tovary of userTovary | filter : 'pizza'"
+          >
+            <div>
+              <div class="product">
+                <div class="product_image-wrap">
+                  <a
+                    class="product_image"
+                    [routerLink]="['/' + tovary.category.path, tovary.id]"
+                  >
+                    <img
+                      class="product-img"
+                      [src]="tovary.imagePath"
+                      style="max-width: 100%"
+                    />
+                  </a>
+                  <div class="product_top-right">
+                    <button
+                      (click)="toggle(tovary)"
+                      class="fav-btn"
+                      [ngClass]="{ active: tovary.isActive }"
+                    >
+                      <svg
+                        width="20"
+                        height="18"
+                        viewBox="0 0 20 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          class="fill-anime"
+                          d="M10.5167 16.3416C10.2334 16.4416 9.76675 16.4416 9.48342 16.3416C7.06675 15.5166 1.66675 12.075 1.66675 6.24165C1.66675 3.66665 3.74175 1.58331 6.30008 1.58331C7.81675 1.58331 9.15842 2.31665 10.0001 3.44998C10.8417 2.31665 12.1917 1.58331 13.7001 1.58331C16.2584 1.58331 18.3334 3.66665 18.3334 6.24165C18.3334 12.075 12.9334 15.5166 10.5167 16.3416Z"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                  <div class="product_title-wrap">
+                    <div class="product_title">
+                      <p
+                        [routerLink]="['/' + tovary.category.path, tovary.id]"
+                        class="product_title"
+                      >
+                        {{ tovary.name }}
+                        <i>
+                          <img [src]="tovary.imagePathCategory" alt="" />
+                        </i>
+                      </p>
+                    
+                    </div>
+                  </div>
+                  <p class="product_desc">{{ tovary.description }}</p>
+                  <div class="product_price-wrap">
+                    <p class="product_price">
+                      <b>{{ tovary.price }}грн</b>
+                    </p>
+                    <p class="product_size">/ {{ tovary.weight }}г</p>
+                    <p class="bonus_calculate">
+                      <b>+</b> {{ tovary.bonus }}грн бонусів
+                    </p>
+                  </div>
+               
+                <div class="thumb-input d-flex">
+                  <div class="thumb-input-number">
+                    <button type="button" class="decrement" data-key="">
+                      -
+                    </button>
+                    <input
+                      class="product-qty"
+                      value="1"
+                      readonly=""
+                      tabindex="-1"
+                      max=""
+                      data-key=""
+                    />
+                    <button type="button" class="increment" data-key="">
+                      +
+                    </button>
+                  </div>
+                  <button class="btn-product">
+                    <span>замовити</span>
+                    <i>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.25 6.39167V5.58334C6.25 3.70834 7.75833 1.86667 9.63333 1.69167C11.8667 1.47501 13.75 3.23334 13.75 5.42501V6.57501"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M7.5001 18.3333H12.5001C15.8501 18.3333 16.4501 16.9917 16.6251 15.3583L17.2501 10.3583C17.4751 8.32499 16.8918 6.66666 13.3334 6.66666H6.66677C3.10843 6.66666 2.5251 8.32499 2.7501 10.3583L3.3751 15.3583C3.5501 16.9917 4.1501 18.3333 7.5001 18.3333Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M12.9128 10H12.9203"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M7.07884 10H7.08632"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="benefits-wrapper b-shadow">
+        <img class="decor-img left" src="assets/images/decor-img-6.svg" />
+        <div class="row benefits-row justify-content-center">
+          <div class="benefits">
+            <div class="col-xl-3 col-md-6">
+              <div class="benefits-item">
+                <div class="benefits-img">
+                  <img src="assets/images/benefits-img-1.svg" alt="" />
+                  <div class="h5">Італійські продукти найвищої якості</div>
+                  <div class="benefits-info">
+                    MA Pizza імпортує продукти топових європейських брендів
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="benefits-item">
+                <div class="benefits-img">
+                  <img src="assets/images/benefits-img-2.svg" alt="" />
+                  <div class="h5">Неймовірний смак та хрустка скоринка</div>
+                  <div class="benefits-info">
+                    MA Pizza готує тісто для піци лише на італійському борошні
+                    Caputo
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="benefits-item">
+                <div class="benefits-img">
+                  <img src="assets/images/benefits-img-3.svg" alt="" />
+                  <div class="h5">
+                    Професійні кухарі та піцайоли майстри своєї справи
+                  </div>
+                  <div class="benefits-info">
+                    У МA Pizza працюють найкращі! Вболіваємо за розвиток кожного
+                    працівника!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="benefits-item">
+                <div class="benefits-img">
+                  <img src="assets/images/benefits-img-4.svg" alt="" />
+                  <div class="h5">
+                    Безкоштовна та швидка доставка у будь-який куточок м. Львів
+                  </div>
+                  <div class="benefits-info">
+                    Середній час доставки у зеленій зоні – 29 хв.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="container">
+          <div class="about-block-wrapper b-shadow">
+            <img
+              class="decor-img left rellax"
+              data-rellax-speed="1"
+              src="assets/images/decor-img-7.svg"
+              alt=""
+            />
+            <div class="about-block-inner">
+              <div class="about-block-info">
+                <div class="title h2 title-decor">Трішки про нас</div>
+                <div class="text text-lg">
+                  <p>
+                    Ми не італійці, в нашій команді немає іменитих шефів чи
+                    розкручених учасників кулінарних шоу.&nbsp; Проте, ми
+                    обожнюємо гастрономічні традиції Італії та експерименти на
+                    кухні, а ще ми з великою повагою ставимося до їжі, яку
+                    готуємо нашим клієнтам.
+                  </p>
+                  <p>
+                    <strong
+                      >Наша мета – дати можливість усім і кожному закохатися у
+                      справжню італійську піцу. МА готує піцу з якісних
+                      імпортних інгредієнтів на італійському борошні Caputo.
+                      Тоненьке тісто, хрумкі бортики, багато начинки – «кусь» і
+                      Ви в Італії!</strong
+                    >
+                  </p>
+                </div>
+                <a class="btn btn-primary mt-3" href="/about-us">
+                  <b>Дізнатися більше</b>
+                  <i></i>
+                </a>
+              </div>
+              <div class="about-block-img">
+                <img
+                  src="assets/images/czikavi-fakty-pro-piczu-scaled-1-890x594.webp"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-inst-block">
+        <div class="container">
+          <div class="inst-block-wrapper b-shadow">
+            <div class="inst-block-inner">
+              <div class="inst-block-img">
+                <img src="assets/images/salyami-686x392.webp" alt="" />
+              </div>
+              <div class="inst-block-info">
+                <div class="title h2 title-decor">
+                  Підпишись на наш Інстаграм
+                </div>
+                <div class="text text-lg">
+                  <p></p>
+                  <p>
+                    Серфите в Інстаграмі? Ми теж! Ма розуміє, що створити кращий
+                    контент, ніж відосики з котиками та песиками – складно, втім
+                    ми стараємося, щоб вам було цікаво. Підписуйтеся на нашу
+                    сторінку, щоб бачити, як справи у МА та які смачні
+                    пропозиції вона для вас підготувала.
+                  </p>
+                  <p></p>
+                </div>
+                <a
+                  class="btn btn-primary mt-5"
+                  href="https://www.instagram.com/_mapizza_/?igshid=NmNmNjAwNzg%3D"
+                >
+                  <b>&#64;MA Pizza</b>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 1.6207C11.4047 1.6207 11.6895 1.63125 12.6352 1.67344C13.5141 1.71211 13.9887 1.85977 14.3051 1.98281C14.7234 2.14453 15.0258 2.34141 15.3387 2.6543C15.6551 2.9707 15.8484 3.26953 16.0102 3.68789C16.1332 4.0043 16.2809 4.48242 16.3195 5.35781C16.3617 6.30703 16.3723 6.5918 16.3723 8.99297C16.3723 11.3977 16.3617 11.6824 16.3195 12.6281C16.2809 13.507 16.1332 13.9816 16.0102 14.298C15.8484 14.7164 15.6516 15.0188 15.3387 15.3316C15.0223 15.648 14.7234 15.8414 14.3051 16.0031C13.9887 16.1262 13.5105 16.2738 12.6352 16.3125C11.6859 16.3547 11.4012 16.3652 9 16.3652C6.59531 16.3652 6.31055 16.3547 5.36484 16.3125C4.48594 16.2738 4.01133 16.1262 3.69492 16.0031C3.27656 15.8414 2.97422 15.6445 2.66133 15.3316C2.34492 15.0152 2.15156 14.7164 1.98984 14.298C1.8668 13.9816 1.71914 13.5035 1.68047 12.6281C1.63828 11.6789 1.62773 11.3941 1.62773 8.99297C1.62773 6.58828 1.63828 6.30352 1.68047 5.35781C1.71914 4.47891 1.8668 4.0043 1.98984 3.68789C2.15156 3.26953 2.34844 2.96719 2.66133 2.6543C2.97773 2.33789 3.27656 2.14453 3.69492 1.98281C4.01133 1.85977 4.48945 1.71211 5.36484 1.67344C6.31055 1.63125 6.59531 1.6207 9 1.6207ZM9 0C6.55664 0 6.25078 0.0105469 5.29102 0.0527344C4.33477 0.0949219 3.67734 0.249609 3.10781 0.471094C2.51367 0.703125 2.01094 1.00898 1.51172 1.51172C1.00898 2.01094 0.703125 2.51367 0.471094 3.1043C0.249609 3.67734 0.0949219 4.33125 0.0527344 5.2875C0.0105469 6.25078 0 6.55664 0 9C0 11.4434 0.0105469 11.7492 0.0527344 12.709C0.0949219 13.6652 0.249609 14.3227 0.471094 14.8922C0.703125 15.4863 1.00898 15.9891 1.51172 16.4883C2.01094 16.9875 2.51367 17.2969 3.1043 17.5254C3.67734 17.7469 4.33125 17.9016 5.2875 17.9438C6.24727 17.9859 6.55312 17.9965 8.99648 17.9965C11.4398 17.9965 11.7457 17.9859 12.7055 17.9438C13.6617 17.9016 14.3191 17.7469 14.8887 17.5254C15.4793 17.2969 15.982 16.9875 16.4813 16.4883C16.9805 15.9891 17.2898 15.4863 17.5184 14.8957C17.7398 14.3227 17.8945 13.6688 17.9367 12.7125C17.9789 11.7527 17.9895 11.4469 17.9895 9.00352C17.9895 6.56016 17.9789 6.2543 17.9367 5.29453C17.8945 4.33828 17.7398 3.68086 17.5184 3.11133C17.2969 2.51367 16.991 2.01094 16.4883 1.51172C15.9891 1.0125 15.4863 0.703125 14.8957 0.474609C14.3227 0.253125 13.6688 0.0984375 12.7125 0.05625C11.7492 0.0105469 11.4434 0 9 0Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      d="M9 4.37695C6.44766 4.37695 4.37695 6.44766 4.37695 9C4.37695 11.5523 6.44766 13.623 9 13.623C11.5523 13.623 13.623 11.5523 13.623 9C13.623 6.44766 11.5523 4.37695 9 4.37695ZM9 11.9988C7.34414 11.9988 6.00117 10.6559 6.00117 9C6.00117 7.34414 7.34414 6.00117 9 6.00117C10.6559 6.00117 11.9988 7.34414 11.9988 9C11.9988 10.6559 10.6559 11.9988 9 11.9988Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      d="M14.8852 4.19453C14.8852 4.79219 14.4 5.27383 13.8059 5.27383C13.2082 5.27383 12.7266 4.78867 12.7266 4.19453C12.7266 3.59688 13.2117 3.11523 13.8059 3.11523C14.4 3.11523 14.8852 3.60039 14.8852 4.19453Z"
+                      fill="white"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-faq">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-8 offset-xl-2">
+              <div class="title h2 title-decor ms-4">FAQ</div>
+              <div class="accordion mt-3" id="accordionExample">
+                <div class="accordion-item">
+                  <div class="accordion-title">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse1"
+                      aria-expanded="false"
+                      aria-controls="collapse1"
+                    >
+                      <h5 itemprop="name">⭕ Скільки коштує доставка?</h5>
+                      <i></i>
+                    </button>
+                  </div>
+                  <div
+                    id="collapse1"
+                    class="accordion-collapse collapse accordion-inner"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-inner">
+                      <div class="text" itemprop="text">
+                        <p>
+                          Доставка піци є безкоштовною при замовленні від 300
+                          грн у зеленій зоні та 400 грн у жовтій.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-title">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse2"
+                      aria-expanded="false"
+                      aria-controls="collapse2"
+                    >
+                      <h5 itemprop="name">⭕ Який час прийому замовлень?</h5>
+                      <i></i>
+                    </button>
+                  </div>
+                  <div
+                    id="collapse2"
+                    class="accordion-collapse collapse accordion-inner"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-inner">
+                      <div class="text" itemprop="text">
+                        <p>Замовляти піцу в MA, можна з 10:00 по 22:30</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-title">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse3"
+                      aria-expanded="false"
+                      aria-controls="collapse3"
+                    >
+                      <h5 itemprop="name">⭕ Які у вас є акції?</h5>
+                      <i></i>
+                    </button>
+                  </div>
+                  <div
+                    id="collapse3"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-inner">
+                      <div class="text" itemprop="text">
+                        <p>
+                          Акція "2+1" - отримуєте 3 піци, а платите всього за
+                          дві. Акція "3+1" - отримуєте 4 піци, а платите всього
+                          за три.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-title">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse4"
+                      aria-expanded="false"
+                      aria-controls="collapse4"
+                    >
+                      <h5 itemprop="name">
+                        ⭕ Піца відрізняється від фото на сайті
+                      </h5>
+                      <i></i>
+                    </button>
+                  </div>
+                  <div
+                    id="collapse4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-inner">
+                      <div class="text" itemprop="text">
+                        <p>
+                          Так, піца яку ви отримаєте, може мати трохи інший
+                          вигляд, ніж та, що ви бачите на наших фото. Проте,
+                          склад і смак є незмінним.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section seo-section">
+        <img
+          class="decor-img left rellax"
+          src="assets/images/decor-img-3.svg"
+          alt=""
+        />
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+              <div class="seo-text-block">
+                <div class="text text-lg">
+                  <h2>Ідеальна доставка піци Львів</h2>
+                  <p>
+                    Відчуваєте цей неповторний аромат хрусткого тіста, соковитої
+                    начинки? Пригадуєте момент, коли тримаєте в руках теплу
+                    коробку й крадькома заглядаєте всередину, щоб глянути на цей
+                    гарячий, запашний шедевр? Піца Львів – це справжній
+                    кулінарний витвір мистецтва, а із MA Pizza неповторних,
+                    ідеальних смаків ще більше.
+                  </p>
+                  <p>
+                    <strong>Акції від MA Pizza</strong>
+                  </p>
+                  <table border="1">
+                    <tbody>
+                      <tr>
+                        <td>Середній час доставки 29 хв</td>
+                        <td>
+                          Отримуйте знижку 10% на замовлення зі самовивозом
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Акція “2+1”</td>
+                        <td>Отримуєте 3 піци, а платите всього за дві</td>
+                      </tr>
+                      <tr>
+                        <td>Акція “3+1”</td>
+                        <td>Отримуєте 4 піци, а платите всього за три</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    Безсумнівно, піца Львів – ідеальна страва. Адже вона має
+                    божественний смак, особливу форму, привабливий вигляд. Краєм
+                    ока поглянувши на апетитну «Карбонару», «Діаволу» або
+                    «Капрічозу» від MA Піца Львів, ніхто не зможете встояти
+                    перед спокусою скуштувати ласий шматочок. Ми пропонуємо
+                    соковиті начинки з фантастичного поєднання свіжих продуктів
+                    на запашному тісті, яке залишає післясмак справжньої
+                    райської насолоди.
+                  </p>
+                  <p>
+                    Доставка піци Львів від МA Pizza– це смачно, корисно,
+                    просто. Вам потрібно витратити всього декілька хвилин на
+                    замовлення улюбленої піци. Наші майстри одразу візьмуться до
+                    роботи, щоб приготувати вам найсвіжішу, найсмачнішу піцу.
+                  </p>
+                  <p></p>
+                  <div class="more-text">
+                    <div class="text text-lg" style="display: none">
+                      <h2>
+                        Піца Львів від MА Pizza – кохання з першого погляду,
+                        аромату, шматочку!
+                      </h2>
+                      <p>
+                        Справжня італійська піца Львів готується під
+                        керівництвом професіоналів. Найсвіжіші продукти у
+                        золотих руках майстрів перетворюються у шедеври
+                        кулінарного мистецтва. Вони знають секрети італійських
+                        піцайол, які вміють робити тісто по-особливому хрустким,
+                        а начинку неперевершеною. Піца на дровах у Львові MA
+                        Pizza – смачна, ситна страва, але окрім цього, особлива
+                        насолода, яка приваблює усіх ще не раз повертатись до
+                        наших закладів.
+                      </p>
+                      <p>
+                        Кожен, хто скуштує навіть найменший шматочок MА Pizza,
+                        отримає можливість відчути справжню атмосферу Італії. Де
+                        б ви не були: у одному з наших закладів, вдома з
+                        рідними, на прогулянці з друзями, – за допомогою
+                        блискавичної доставки можна перенестись до теплого
+                        Неаполя чи Мілану. Наші заклади розташовані у різних
+                        куточках, а тому доставка піци Львів є максимально
+                        швидкою. Кожен може насолодитись гарячою стравою, лише
+                        декілька хвилин тому приготованою на дровах.
+                      </p>
+                      <p>
+                        Доставка піци у м. Львів від MA Pizza максимально зручна
+                        для кожного, хто хоче скуштувати шматочок італійської
+                        насолоди:
+                      </p>
+                      <ol>
+                        <li>
+                          Ви можете зробити замовлення на нашому сайті або ж
+                          зателефонувати до нашого кол-центру, де вам допоможуть
+                          обрати ідеальну піцу на будь-який смак.
+                        </li>
+                        <li>
+                          У нашому застосунка можна зробити замовлення або ж
+                          переглянути всі акції.
+                        </li>
+                        <li>
+                          За допомогою інтерактивної карти можна визначити, до
+                          якої зони доставки належить ваша адреса – зеленої
+                          (середній час доставки – до 29 хв) або жовтої (до 59
+                          хв).
+                        </li>
+                      </ol>
+                      <h2>MА Pizza – доставка піци у Львові #1!</h2>
+                      <p>
+                        А для всіх, хто знає, що піци багато не буває, ми
+                        пропонуємо бонус – безкоштовна доставка піци у Львові.
+                        Адже це чудова можливість зекономити, якщо ви плануєте
+                        замовити багато смачної, ароматної піци для себе та
+                        друзів. Замовити піцу у м. Львів безкоштовно, а також
+                        цілодобово, можна придбавши замовлення на відповідну
+                        мінімальну суму.
+                      </p>
+                      <h2>Чому піца у Львові така популярна?</h2>
+                      <ul>
+                        <li>
+                          Для когось це ситна страва, яка додає енергії протягом
+                          шаленого робочого дня.
+                        </li>
+                        <li>
+                          Іншим вона створює затишну атмосферу під час
+                          посиденьок з друзями чи рідними.
+                        </li>
+                        <li>
+                          А ще для когось – стає романтичною домашньою вечерею з
+                          коханою половинкою.
+                        </li>
+                      </ul>
+                      <p>
+                        Іноді так не хочеться стояти увесь день на кухні,
+                        витрачаючи увесь час та енергію на приготування
+                        одноманітної домашньої кухні. МА піца у Львові– то
+                        шматочок італійської атмосфери тепла, релаксу, душевного
+                        спокою. Також ж вона може стати доповненням шаленої
+                        вечірки з друзями, немов у найкрутіших клубах на
+                        узбережжі Італії.
+                      </p>
+                      <h3>Чому варто обирати піцу у Львові від МА піца?</h3>
+                      <ul>
+                        <li>
+                          Майстерність на найвищому рівні – за допомогою
+                          найкрутіших технологій наші майстри готують таку піцу,
+                          що навіть італійці можуть позаздрити;
+                        </li>
+                        <li>
+                          Свіжі, корисні продукти – поєднання найкращих овочів,
+                          сирів, м’яса, зелені із Італії, Польщі, Німеччини,
+                          Іспанії роблять MA Pizza однією з найкращих піцерій у
+                          Львові;
+                        </li>
+                        <li>
+                          Швидка доставка – до 29 хвилин в межах зеленої зони;
+                        </li>
+                        <li>
+                          Оригінальні смаки для гурманів – якщо вам набридли
+                          одноманітні начинки, ми пропонуємо особливі поєднання
+                          смаків:&nbsp; «Брі», «3 сири з грушкою», «Мафіо де
+                          Цезаріні» тощо;
+                        </li>
+                        <li>
+                          Доставка піци в межах Львова – дарує можливість
+                          насолодитись апетитною, теплою стравою на відпочинку
+                          на природі, в гостях у друзів чи вдома переглядаючи
+                          фільм!
+                        </li>
+                      </ul>
+                      <p>
+                        Скуштуйте МA Pizza й відчуйте неповторну атмосферу
+                        Італії у себе вдома у Львові!
+                      </p>
+                      <p>
+                        На даний момент МА Піца не може запропонувати вам: суші,
+                        роли, філадельфія, дракон, сети, лосось, каліфорнія,
+                        теплі чи запечені роли. Додавати такий продукт як суші у
+                        Львові наразі ми не плануємо. Дякуємо за довіру до
+                        нашого бренду.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="more-text">
+                    <div class="collapse" id="collapseExample">
+                      <div class="text text-lg">
+                        <h2>
+                          Піца Львів від MА Pizza – кохання з першого погляду,
+                          аромату, шматочку!
+                        </h2>
+                        <p>
+                          Справжня італійська піца Львів готується під
+                          керівництвом професіоналів. Найсвіжіші продукти у
+                          золотих руках майстрів перетворюються у шедеври
+                          кулінарного мистецтва. Вони знають секрети італійських
+                          піцайол, які вміють робити тісто по-особливому
+                          хрустким, а начинку неперевершеною. Піца на дровах у
+                          Львові MA Pizza – смачна, ситна страва, але окрім
+                          цього, особлива насолода, яка приваблює усіх ще не раз
+                          повертатись до наших закладів.
+                        </p>
+                        <p>
+                          Кожен, хто скуштує навіть найменший шматочок MА Pizza,
+                          отримає можливість відчути справжню атмосферу Італії.
+                          Де б ви не були: у одному з наших закладів, вдома з
+                          рідними, на прогулянці з друзями, – за допомогою
+                          блискавичної доставки можна перенестись до теплого
+                          Неаполя чи Мілану. Наші заклади розташовані у різних
+                          куточках, а тому доставка піци Львів є максимально
+                          швидкою. Кожен може насолодитись гарячою стравою, лише
+                          декілька хвилин тому приготованою на дровах.
+                        </p>
+                        <p>
+                          Доставка піци у м. Львів від MA Pizza максимально
+                          зручна для кожного, хто хоче скуштувати шматочок
+                          італійської насолоди:
+                        </p>
+                        <ol>
+                          <li>
+                            Ви можете зробити замовлення на нашому сайті або ж
+                            зателефонувати до нашого кол-центру, де вам
+                            допоможуть обрати ідеальну піцу на будь-який смак.
+                          </li>
+                          <li>
+                            У нашому застосунка можна зробити замовлення або ж
+                            переглянути всі акції.
+                          </li>
+                          <li>
+                            За допомогою інтерактивної карти можна визначити, до
+                            якої зони доставки належить ваша адреса – зеленої
+                            (середній час доставки – до 29 хв) або жовтої (до 59
+                            хв).
+                          </li>
+                        </ol>
+                        <h2>MА Pizza – доставка піци у Львові #1!</h2>
+                        <p>
+                          А для всіх, хто знає, що піци багато не буває, ми
+                          пропонуємо бонус – безкоштовна доставка піци у Львові.
+                          Адже це чудова можливість зекономити, якщо ви плануєте
+                          замовити багато смачної, ароматної піци для себе та
+                          друзів. Замовити піцу у м. Львів безкоштовно, а також
+                          цілодобово, можна придбавши замовлення на відповідну
+                          мінімальну суму.
+                        </p>
+                        <h2>Чому піца у Львові така популярна?</h2>
+                        <ul>
+                          <li>
+                            Для когось це ситна страва, яка додає енергії
+                            протягом шаленого робочого дня.
+                          </li>
+                          <li>
+                            Іншим вона створює затишну атмосферу під час
+                            посиденьок з друзями чи рідними.
+                          </li>
+                          <li>
+                            А ще для когось – стає романтичною домашньою вечерею
+                            з коханою половинкою.
+                          </li>
+                        </ul>
+                        <p>
+                          Іноді так не хочеться стояти увесь день на кухні,
+                          витрачаючи увесь час та енергію на приготування
+                          одноманітної домашньої кухні. МА піца у Львові– то
+                          шматочок італійської атмосфери тепла, релаксу,
+                          душевного спокою. Також ж вона може стати доповненням
+                          шаленої вечірки з друзями, немов у найкрутіших клубах
+                          на узбережжі Італії.
+                        </p>
+                        <h3>Чому варто обирати піцу у Львові від МА піца?</h3>
+                        <ul>
+                          <li>
+                            Майстерність на найвищому рівні – за допомогою
+                            найкрутіших технологій наші майстри готують таку
+                            піцу, що навіть італійці можуть позаздрити;
+                          </li>
+                          <li>
+                            Свіжі, корисні продукти – поєднання найкращих
+                            овочів, сирів, м’яса, зелені із Італії, Польщі,
+                            Німеччини, Іспанії роблять MA Pizza однією з
+                            найкращих піцерій у Львові;
+                          </li>
+                          <li>
+                            Швидка доставка – до 29 хвилин в межах зеленої зони;
+                          </li>
+                          <li>
+                            Оригінальні смаки для гурманів – якщо вам набридли
+                            одноманітні начинки, ми пропонуємо особливі
+                            поєднання смаків:&nbsp; «Брі», «3 сири з грушкою»,
+                            «Мафіо де Цезаріні» тощо;
+                          </li>
+                          <li>
+                            Доставка піци в межах Львова – дарує можливість
+                            насолодитись апетитною, теплою стравою на відпочинку
+                            на природі, в гостях у друзів чи вдома переглядаючи
+                            фільм!
+                          </li>
+                        </ul>
+                        <p>
+                          Скуштуйте МA Pizza й відчуйте неповторну атмосферу
+                          Італії у себе вдома у Львові!
+                        </p>
+                        <p>
+                          На даний момент МА Піца не може запропонувати вам:
+                          суші, роли, філадельфія, дракон, сети, лосось,
+                          каліфорнія, теплі чи запечені роли. Додавати такий
+                          продукт як суші у Львові наразі ми не плануємо.
+                          Дякуємо за довіру до нашого бренду.
+                        </p>
+                        Не знайдено schema.
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="decor-img right rellax"
+                    src="assets/images/decor-img-4.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

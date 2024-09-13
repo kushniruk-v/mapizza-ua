@@ -1,0 +1,374 @@
+<app-product-dialog [selectedTovar]="currentTovary"></app-product-dialog>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <div class="mx-auto mb-3">
+        <div class="row">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs-listen">
+              <a [routerLink]="['/']">
+                <span itemprop="name">Головна</span>
+              </a>
+            </li>
+            <li class="breadcrumbs-listen">
+              <a [routerLink]="['/' + currentTovary.category.path]">
+                <span itemprop="name">{{ currentTovary.category.name }}</span>
+              </a>
+            </li>
+            <li class="active">
+              <span>{{ currentTovary.name }}</span>
+            </li>
+          </ul>
+          <div class="col-sm-6 product_detail">
+            <div class="product_detail_slide">
+              <img
+                [src]="currentTovary.imagePath"
+                class="img-fluid rounded-start"
+                alt="currentTovary.name"
+              />
+              <button class="fav-btn ">
+                <svg
+                  width="20"
+                  height="18"
+                  viewBox="0 0 20 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="fill-anime"
+                    d="M10.5167 16.3416C10.2334 16.4416 9.76675 16.4416 9.48342 16.3416C7.06675 15.5166 1.66675 12.075 1.66675 6.24165C1.66675 3.66665 3.74175 1.58331 6.30008 1.58331C7.81675 1.58331 9.15842 2.31665 10.0001 3.44998C10.8417 2.31665 12.1917 1.58331 13.7001 1.58331C16.2584 1.58331 18.3334 3.66665 18.3334 6.24165C18.3334 12.075 12.9334 15.5166 10.5167 16.3416Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="product_detail">
+              <div class="product_price-top">
+                <div class="price_size_wrapper">
+                  <p class="product_price">
+                    <b>{{ currentTovary.price }}грн</b>
+                  </p>
+                  <p class="product_size">/{{ currentTovary.weight }}г</p>
+                </div>
+                <p class="bonus_calculate">
+                  <b>+</b> {{ currentTovary.bonus }}грн бонусів
+                </p>
+              </div>
+              <h1 class="product-detail-title title h2">
+                <b>{{ currentTovary.name }}</b>
+                <i>
+                  <img [src]="currentTovary.imagePathCategory" alt="" />
+                </i>
+              </h1>
+              <p class="description">{{ currentTovary.description }}</p>
+              <div class="btn btn-secondary"  (click)="openProductDialog(currentTovary)"  >
+                <span>Додати / змінити складники</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.0003 18.3333C14.5837 18.3333 18.3337 14.5833 18.3337 9.99996C18.3337 5.41663 14.5837 1.66663 10.0003 1.66663C5.41699 1.66663 1.66699 5.41663 1.66699 9.99996C1.66699 14.5833 5.41699 18.3333 10.0003 18.3333Z"
+                    stroke="#D22730"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M6.66699 10H13.3337"
+                    stroke="#D22730"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M10 13.3333V6.66663"
+                    stroke="#D22730"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </div>
+              <div class="free-ing ing_body-additional rec-ing">
+                <div class="ing_group inc_calc-group">
+                  <div class="d-sm-flex justify-content-sm-between">
+                    <div class="title h6">Рекомендуємо додати</div>
+                    <div class="total_ing-prise">Сума додатків:
+                      <span><b>{{totalPrice}}</b>грн</span></div>
+                  </div>
+                  <div class="ing_output active">
+                    <div class="ing_control">
+                      <p class="ing_control-title" *ngFor="let product of selectedProducts; let i = index">{{ product.name }}
+                        <button class="btn-close" (click)="removeProduct(i)"></button></p>
+                    </div>
+                  </div>
+                  <div class="ing_row">
+                    <div class="ingredient" *ngFor="let product of additionalComponents; let i=index"
+                    (click)="addProduct(product.name, i,product.price)" 
+                    [ngClass]="product.class">
+                    <div class="ingredient_img">
+                      <img [src]="product.imagePath" alt="">
+                  </div>
+                  <p class="ingredient_title">{{product.name}}</p>
+                  <div class="ingredient_bottom">
+                    <span>{{product.weight}}г</span>
+                    <span><b>{{product.price}}</b> грн</span>
+                </div>
+    <div class="ingredient_action"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product_detail-controls">
+                <span>Кількість:</span>
+                <div class="thumb-input-number">
+                  <button
+                    (click)="tovaryCount(currentTovary, false)"
+                    type="button"
+                    class="decrement"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="product-qty"
+                    value="1"
+                    [value]="currentTovary.count"
+                    readonly=""
+                    tabindex="-1"
+                  />
+                  <button
+                    (click)="tovaryCount(currentTovary, true)"
+                    type="button"
+                    class="increment"
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="product_price-wrap">
+                  <div class="product_price">
+                    <b class="price">{{ currentTovary.price * currentTovary.count}}</b>
+                    грн
+                  </div>
+                </div>
+              </div>
+              <button
+                (click)="addToBasket(currentTovary)"
+                class="btn btn-primary btn-block"
+              >
+                <span>замовити</span>
+                <i>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.25 6.39167V5.58334C6.25 3.70834 7.75833 1.86667 9.63333 1.69167C11.8667 1.47501 13.75 3.23334 13.75 5.42501V6.57501"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M7.5001 18.3333H12.5001C15.8501 18.3333 16.4501 16.9917 16.6251 15.3583L17.2501 10.3583C17.4751 8.32499 16.8918 6.66666 13.3334 6.66666H6.66677C3.10843 6.66666 2.5251 8.32499 2.7501 10.3583L3.3751 15.3583C3.5501 16.9917 4.1501 18.3333 7.5001 18.3333Z"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M12.9128 10H12.9203"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M7.07884 10H7.08632"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="section">
+    <div class="container">
+      <div class="h2 title-decor">Інші товари з цієї категорії</div>
+      <div class="swiper-entry products_swiper">
+      <div class="swiper-button-prev" (click)="onSlidePrev()">
+        <i><svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1 8.00004V5.33004C1 2.02005 3.35 0.660045 6.22 2.32005L8.53 3.66004L10.84 5.00004C13.71 6.66004 13.71 9.37004 10.84 11.03L8.53 12.37L6.22 13.71C3.35 15.34 1 13.99 1 10.67V8.00004Z" stroke-width="1.5"></path></svg></i>
+      </div>
+      <div class="swiper-button-next mx-3" (click)="onSlideNext()" >
+        <i>
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 8.00004V5.33004C1 2.02005 3.35 0.660045 6.22 2.32005L8.53 3.66004L10.84 5.00004C13.71 6.66004 13.71 9.37004 10.84 11.03L8.53 12.37L6.22 13.71C3.35 15.34 1 13.99 1 10.67V8.00004Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          </i>
+      </div>
+<swiper-container class="mySwiper"   space-between="30"  #swiper1 class="mySwiper"
+ [breakpoints]="breakpointsConfig"  pagination="true">
+        <swiper-slide *ngFor="let tovary of userTovary" >
+          <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="product_image-wrap">
+                <img
+                  [routerLink]="['/' + tovary.category.path, tovary.id]"
+                  class="product-img"
+                  [src]="tovary.imagePath"
+                />
+                <div class="product_top-right">
+                  <button class="fav-btn">
+                    <svg
+                      width="20"
+                      height="18"
+                      viewBox="0 0 20 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="fill-anime"
+                        d="M10.5167 16.3416C10.2334 16.4416 9.76675 16.4416 9.48342 16.3416C7.06675 15.5166 1.66675 12.075 1.66675 6.24165C1.66675 3.66665 3.74175 1.58331 6.30008 1.58331C7.81675 1.58331 9.15842 2.31665 10.0001 3.44998C10.8417 2.31665 12.1917 1.58331 13.7001 1.58331C16.2584 1.58331 18.3334 3.66665 18.3334 6.24165C18.3334 12.075 12.9334 15.5166 10.5167 16.3416Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="product_title-wrap-2">
+                  <div class="product_title-2">
+                    <p
+                      [routerLink]="['/' + tovary.category.path, tovary.id]"
+                      class="product_title"
+                    >
+                      {{ tovary.name }}
+                      <i>
+                        <img [src]="tovary.imagePathCategory" alt="" />
+                      </i>
+                    </p>
+                  </div>
+                </div>
+
+                <p class="product_desc">{{ tovary.description }}</p>
+                <div class="product_controls">
+                  <div class="product_price-wrap-2">
+                    <p class="product_price">
+                      <b>{{ tovary.price }}грн</b>
+                    </p>
+                    <p class="product_size product_size-2">
+                      / {{ tovary.weight }}г
+                    </p>
+                    <p class="bonus_calculate bonus_calculate-2">
+                      <b>+</b> {{tovary.bonus }}грн бонусів
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="thumb-input d-flex">
+                <div class="thumb-input-number thumb-input-number-2" >
+                  <button   
+                    (click)="tovaryCountfound(currentTovary, false)"
+                    type="button"
+                    class="decrement"
+                  >
+                    -
+                  </button>
+                  <input
+                  class="product-qty"
+                   value="1"
+                  [value]="tovary.countFound"
+                  tabindex="-1"
+                  readonly
+                />
+                  <button
+                    (click)="tovaryCountfound(currentTovary, true)"
+                    type="button"
+                    class="increment"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <button
+                (click)="addToBasket(currentTovary)" 
+                class="btn btn-primary btn-block mt-3"
+              >
+                <span>замовити</span>
+                <i>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.25 6.39167V5.58334C6.25 3.70834 7.75833 1.86667 9.63333 1.69167C11.8667 1.47501 13.75 3.23334 13.75 5.42501V6.57501"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M7.5001 18.3333H12.5001C15.8501 18.3333 16.4501 16.9917 16.6251 15.3583L17.2501 10.3583C17.4751 8.32499 16.8918 6.66666 13.3334 6.66666H6.66677C3.10843 6.66666 2.5251 8.32499 2.7501 10.3583L3.3751 15.3583C3.5501 16.9917 4.1501 18.3333 7.5001 18.3333Z"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M12.9128 10H12.9203"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M7.07884 10H7.08632"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </i>
+              </button>
+            </div>
+ </div>
+ </div>
+        </swiper-slide>
+</swiper-container>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

@@ -1,0 +1,157 @@
+<main>
+  <div class="section cabinet-section">
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-6.svg"
+      alt=""
+      style="top: 0px; left: -40px"
+    />
+    <img
+      class="decor-img rellax"
+      data-rellax-speed="-1"
+      src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-5.svg"
+      alt=""
+      style="top: 0px; right: -40px"
+    />
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8 col-xxl-6 text-center">
+          <h1 class="title title-decor h2 mt-5">Улюблені</h1>
+        </div>
+      </div>
+      <div class="row product-row">
+        <p *ngIf="!userTovary.length" style="text-align: center">
+          Вибачте, але у вас немає улюблених товарів
+        </p>
+        <div class="row product-row">
+          <div
+            class="col-sm-6 col-lg-4 col-xl-43"
+            *ngFor="let tovary of userTovary"
+          >
+            <div class="product">
+              <div class="product_image">
+                <img
+                  [routerLink]="['/' + tovary.category.path, tovary.id]"
+                  class="product-img"
+                  [src]="tovary.imagePath"
+                  style="max-width: 100%"
+                />
+                <div class="product_top-right">
+                  <button (click)="deleteFavoriteTovar(tovary)" class="fav-btn">
+                    <svg
+                      width="20"
+                      height="18"
+                      viewBox="0 0 20 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="fill-anime"
+                        d="M10.5167 16.3416C10.2334 16.4416 9.76675 16.4416 9.48342 16.3416C7.06675 15.5166 1.66675 12.075 1.66675 6.24165C1.66675 3.66665 3.74175 1.58331 6.30008 1.58331C7.81675 1.58331 9.15842 2.31665 10.0001 3.44998C10.8417 2.31665 12.1917 1.58331 13.7001 1.58331C16.2584 1.58331 18.3334 3.66665 18.3334 6.24165C18.3334 12.075 12.9334 15.5166 10.5167 16.3416Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="product_title-wrap">
+                  <p
+                    [routerLink]="['/' + tovary.category.path, tovary.id]"
+                    class="product_title"
+                  >
+                    {{ tovary.name }}
+                    <i>
+                      <img [src]="tovary.imagePathCategory" alt="" />
+                    </i>
+                  </p>
+                  <p></p>
+                </div>
+                <p class="product_desc">{{ tovary.description }}</p>
+                <div class="product_price-wrap">
+                  <p class="product_price">
+                    <b>{{ tovary.price }}грн</b>
+                  </p>
+                  <p class="product_size">/ {{ tovary.weight }}г</p>
+                  <p class="bonus_calculate">
+                    <b>+</b> {{ tovary.bonus }}грн бонусів
+                  </p>
+                </div>
+              </div>
+              <div class="thumb-input d-flex">
+                <div class="thumb-input-number">
+                  <button
+                    (click)="tovaryCount(tovary, false)"
+                    type="button"
+                    class="decrement"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="product-qty"
+                    value="1"
+                    [value]="tovary.count"
+                    readonly=""
+                  />
+                  <button
+                    (click)="tovaryCount(tovary, true)"
+                    type="button"
+                    class="increment"
+                  >
+                    +
+                  </button>
+                </div>
+                <button (click)="addToBasket(tovary)" class="btn-product">
+                  <span>замовити</span>
+                  <i>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.25 6.39167V5.58334C6.25 3.70834 7.75833 1.86667 9.63333 1.69167C11.8667 1.47501 13.75 3.23334 13.75 5.42501V6.57501"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.5001 18.3333H12.5001C15.8501 18.3333 16.4501 16.9917 16.6251 15.3583L17.2501 10.3583C17.4751 8.32499 16.8918 6.66666 13.3334 6.66666H6.66677C3.10843 6.66666 2.5251 8.32499 2.7501 10.3583L3.3751 15.3583C3.5501 16.9917 4.1501 18.3333 7.5001 18.3333Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M12.9128 10H12.9203"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M7.07884 10H7.08632"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

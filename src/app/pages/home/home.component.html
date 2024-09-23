@@ -197,31 +197,30 @@
                     </button>
                   </div>
                 </div>
-                  <div class="product_title-wrap">
-                    <div class="product_title">
-                      <p
-                        [routerLink]="['/' + tovary.category.path, tovary.id]"
-                        class="product_title"
-                      >
-                        {{ tovary.name }}
-                        <i>
-                          <img [src]="tovary.imagePathCategory" alt="" />
-                        </i>
-                      </p>
-                    
-                    </div>
-                  </div>
-                  <p class="product_desc">{{ tovary.description }}</p>
-                  <div class="product_price-wrap">
-                    <p class="product_price">
-                      <b>{{ tovary.price }}грн</b>
-                    </p>
-                    <p class="product_size">/ {{ tovary.weight }}г</p>
-                    <p class="bonus_calculate">
-                      <b>+</b> {{ tovary.bonus }}грн бонусів
+                <div class="product_title-wrap">
+                  <div class="product_title">
+                    <p
+                      [routerLink]="['/' + tovary.category.path, tovary.id]"
+                      class="product_title"
+                    >
+                      {{ tovary.name }}
+                      <i>
+                        <img [src]="tovary.imagePathCategory" alt="" />
+                      </i>
                     </p>
                   </div>
-               
+                </div>
+                <p class="product_desc">{{ tovary.description }}</p>
+                <div class="product_price-wrap">
+                  <p class="product_price">
+                    <b>{{ tovary.price }}грн</b>
+                  </p>
+                  <p class="product_size">/ {{ tovary.weight }}г</p>
+                  <p class="bonus_calculate">
+                    <b>+</b> {{ tovary.bonus }}грн бонусів
+                  </p>
+                </div>
+
                 <div class="thumb-input d-flex">
                   <div class="thumb-input-number">
                     <button type="button" class="decrement" data-key="">
@@ -239,7 +238,7 @@
                       +
                     </button>
                   </div>
-                  <button class="btn-product">
+                  <button (click)="addToBasket(tovary)" class="btn-product">
                     <span>замовити</span>
                     <i>
                       <svg

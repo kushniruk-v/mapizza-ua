@@ -3,6 +3,7 @@ import { ITovaryResponse } from '../../shared/interfaces/tovary/tovary-interface
 import { TovaryService } from '../../shared/services/tovary/tovary.service';
 import Swiper from 'swiper';
 import { FavoriteService } from '../../shared/services/favorite/favorite.service';
+import { OrderService } from '../../shared/order/order.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent {
   public isActive = false;
   constructor(
     private TovaryService: TovaryService,
-    private favoriteService: FavoriteService
+    private favoriteService: FavoriteService,
+    private orderService: OrderService
   ) {}
 
   ngOnInit(): void {
@@ -72,5 +74,20 @@ export class HomeComponent {
     } else {
       this.addToFavorites(tovar);
     }
+  }
+  addToBasket(tovar: ITovaryResponse): void {
+    let basket: Array<ITovaryResponse> = [];
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
+      basket = JSON.parse(localStorage.getItem('basket') as string);
+      if (basket.some((prod) => prod.id === tovar.id)) {
+        const index = basket.findIndex((prod) => prod.id === tovar.id);
+        basket[index].count += tovar.count;
+      } else {
+        basket.push(tovar);
+      }
+    }
+    localStorage.setItem('basket', JSON.stringify(basket));
+    tovar.count = 1;
+    this.orderService.changeBasket.next(true);
   }
 }

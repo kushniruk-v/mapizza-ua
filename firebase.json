@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/mapizza-ua",
+    "public": "dist/mapizza-ua/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -571,8 +571,8 @@ button .btn-close {
 }
 .product_desc {
   display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   overflow: hidden;
   min-height: 4.5em;
   color: #636662;
@@ -580,6 +580,7 @@ button .btn-close {
   line-height: 1.5em;
   margin-bottom: 10px;
 }
+
 .product_price-wrap-2 {
   display: flex;
   flex-wrap: wrap;

@@ -109,27 +109,30 @@ export class BasketDialogComponent {
       this.orderService.changeBasket.next(true);
     }
   }
+
   toOrder(): void {
     const currentUser = JSON.parse(
       localStorage.getItem('currentUser') as string
     );
-    if (currentUser) {
-      const updatedOrders = this.userTovary.map((order) => ({
-        ...order,
-        additionalProducts: order.additionalProducts || [],
-      }));
-      this.accountService
-        .updateUserOrders(currentUser.uid, updatedOrders)
-        .then(() => {
-          this.userTovary = [];
-          localStorage.removeItem('basket');
-          this.orderService.changeBasket.next(true);
-          this.dialog.closeAll();
-          this.router.navigate(['/profile']);
-        })
-        .catch((error) => {
-          console.error('Error updating orders: ', error);
-        });
+    if (!currentUser) {
+      alert('Будь ласка, увійдіть в систему, щоб здійснити покупку.');
+      return;
     }
+    const updatedOrders = this.userTovary.map((order) => ({
+      ...order,
+      additionalProducts: order.additionalProducts || [],
+    }));
+    this.accountService
+      .updateUserOrders(currentUser.uid, updatedOrders)
+      .then(() => {
+        this.userTovary = [];
+        localStorage.removeItem('basket');
+        this.orderService.changeBasket.next(true);
+        this.dialog.closeAll();
+        this.router.navigate(['/profile']);
+      })
+      .catch((error) => {
+        console.error('Error updating orders: ', error);
+      });
   }
 }

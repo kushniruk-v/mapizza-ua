@@ -223,18 +223,24 @@
 
                 <div class="thumb-input d-flex">
                   <div class="thumb-input-number">
-                    <button type="button" class="decrement" data-key="">
+                    <button
+                      (click)="tovaryCount(tovary, false)"
+                      type="button"
+                      class="decrement"
+                    >
                       -
                     </button>
                     <input
                       class="product-qty"
                       value="1"
+                      [value]="tovary.count"
                       readonly=""
-                      tabindex="-1"
-                      max=""
-                      data-key=""
                     />
-                    <button type="button" class="increment" data-key="">
+                    <button
+                      (click)="tovaryCount(tovary, true)"
+                      type="button"
+                      class="increment"
+                    >
                       +
                     </button>
                   </div>

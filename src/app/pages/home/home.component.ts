@@ -29,6 +29,13 @@ export class HomeComponent {
       this.userTovary = data as ITovaryResponse[];
     });
   }
+  tovaryCount(tovary: ITovaryResponse, value: boolean): void {
+    if (value) {
+      ++tovary.count;
+    } else if (!value && tovary.count > 1) {
+      --tovary.count;
+    }
+  }
   onSlidePrev(): void {
     if (this.swiper1 && this.swiper1.nativeElement.swiper) {
       this.swiper1.nativeElement.swiper.slidePrev(500);
